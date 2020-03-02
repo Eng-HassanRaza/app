@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LEAN!│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LEAN!" />
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+    <meta property="og:image" content="https://leanjapan.jp/i/images/ogp.png">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="https://leanjapan.jp/i/signup.html" />
+    <meta property="og:site_name" content="LEAN!" />
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378" />
+    <meta property="fb:admins" content="680771545664378" />
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@japan_lean" />
+    <meta name="twitter:url" content="https://leanjapan.jp/i/signup.html" />
+    <meta name="twitter:title" content="LEAN!"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+    <meta name="twitter:image:src" content="https://leanjapan.jp/i/images/ogp.png" />
+    <meta name="twitter:site" content="LEAN!" />
+    <link rel="stylesheet" href="{% static 'new_static/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/site_content.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/style.css' %}">
+</head>
+
+<body class="bg_grey">
+
+    <!-- ==全体をwrapで囲む(横幅固定のため)== -->
+    <div id="wrap">
+
+        <!-- ==コンテンツエリア== -->
+        <main id="profile_contents" class="instagram">
+        {% if not user.is_authenticated %}
+            <section id="app_popup">
+                <hr class="app_popup_close">
+                <ul class="app_open">
+                    <li class="app_details">
+                        <img src="{% static 'new_static/images/ogp.png' %}">
+                        <p>あなたもプロフィールページを作って<br>報酬を手に入れよう</p>
+                    </li>
+                    <li><a href="#">Appで開く</a></li>
+                </ul>
+                <ul class="app_account">
+                    <li class="app_login"><a href="{% url 'web:login' %}">ログイン</a></li>
+                    <li class="app_register"><a href="{% url 'web:signup' %}">新規登録</a></li>
+                </ul>
+            </section>
+        {% endif %}
+
+            <section class="insta_head">
+                <div class="insta_head_icon">
+                    {% if account.profile_image %}
+                        <a href="/"> <img src="/media/{{ account.profile_image }}" alt=""></a>
+                   {% elif account.profile_image1 %}
+                        <a href="/"> <img src="/media/{{ form.profile_image1 }}" alt=""></a>
+                   {% elif account.profile_image2 %}
+                        <a href="/"> <img src="/media/{{ form.profile_image2 }}" alt=""></a>
+                   {% elif account.profile_image3 %}
+                        <a href="/"> <img src="/media/{{ form.profile_image3 }}" alt=""></a>
+                   {% else %}
+                        <a href="/"><img src="{% static '/images/user.png' %}" alt=""></a>
+                   {% endif %}
+                </div>
+                <div class="insta_head_txt">
+                    <ul>
+                        <li>
+                            <h1>{{ account.display_name }}★</h1>
+{#                            <p>1.3K</p>#}
+                        </li>
+                        <li>
+                            <a href="#">Instagramを開く</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            {% block socialcontents %}
+                 {% if instagram_list %}
+                        {% include "parts/insta_page.html" with instagram_list=instagram_list %}
+                {% endif %}
+                    {{ SSP_TAG_LAND|safe }}
+            {% endblock socialcontents %}
+
+        </main>
+
+        <!-- ==ページナビゲーション== -->
+    {% if user.is_authenticated %}
+        {% include 'login_footer.html' %}
+    {% else %}
+        {% include 'not_login_footer.html' %}
+    {% endif %}
+
+    </div>
+
+    <!-- ===スクリプト系= -->
+    <script src="{% static 'new_static/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
+    <script src="{% static 'new_static/js/slick.min.js' %}"></script>
+    <script src="{% static 'new_static/js/lightbox-video.js' %}"></script>
+    <script src="{% static 'new_static/js/index.js' %}"></script>
+
+</body>
+
+</html>
+
+
+
+

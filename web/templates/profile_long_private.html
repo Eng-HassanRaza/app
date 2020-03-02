@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>USER│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="LEAN!"/>
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta property="og:image" content="{{ OGP_URL }}">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="https://lea-n.com/signup/"/>
+    <meta property="og:site_name" content="LEAN!"/>
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378"/>
+    <meta property="fb:admins" content="680771545664378"/>
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@japan_lean"/>
+    <meta name="twitter:url" content="https://lea-n.com/signup/"/>
+    <meta name="twitter:title" content="LEAN!"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta name="twitter:image:src" content="{{ OGP_URL }}"/>
+    <meta name="twitter:site" content="LEAN!"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="{% static '/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static '/css/site_content.css' %}">
+    <link rel="stylesheet" href="{% static '/css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    {% include "parts/ga.html" with GA_TAG=GA_TAG %}
+    {% include "parts/ad_script.html" with SSP_TAG=SSP_LANDSCAPE %}
+</head>
+
+<body class="page-profile-long">
+<div class="header-top">
+    <div class="banner">
+        <div class="banner-wrap">
+            <div class="btn__back sticky-scroll-box">
+                <a href="/"><img src="{% static '/images/btn_back.png' %}" alt=""></a>
+                <h3 class="banner-title"><a href="/profile/{{ account.id }}/">{{ account.display_name }}</a></h3>
+            </div>
+            <div class="avatar">
+                <img src="{% static '/images/user.png' %}" alt="">
+            </div>
+            <div class="banner-content">
+                <div class="banner-header">
+                    <h3 class="banner-title">{{ account.display_name }}</h3>
+                </div>
+                <div class="banner-text"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <!--
+      <section class="section-1">
+          <div class="box-blog">
+              <div class="blog-row">
+                  <div class="list-blog item-4">
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img01.png' %}" alt="">
+                          </a>
+                      </div>
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img02.png' %}" alt="">
+                          </a>
+                      </div>
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img03.png' %}" alt="">
+                          </a>
+                      </div>
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img04.png' %}" alt="">
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              <div class="blog-row">
+                  <div class="list-blog item-4">
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img05.png' %}" alt="">
+                          </a>
+                      </div>
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img06.png' %}" alt="">
+                          </a>
+                      </div>
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img07.png' %}" alt="">
+                          </a>
+                      </div>
+                      <div class="blog-item">
+                          <a href="#">
+                              <img src="{% static '/images/img08.png' %}" alt="">
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+-->
+
+
+    　　　　
+    <div class="text__top">
+        　<p>このユーザーのプロフィールは非公開です。</p>
+    </div>
+</div>
+
+{% include 'parts/menu.html' %}
+<script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static '/js/lightbox.min.js' %}"></script>
+<script src="{% static '/js/slick.min.js' %}"></script>
+<script src="{% static '/js/lightbox-video.js' %}"></script>
+<script src="{% static '/js/clipboard-polyfill.js' %}"></script>
+<script src="{% static '/js/clipboard.min.js' %}"></script>
+<script src="{% static '/js/index.js' %}"></script>
+<script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
+
+</body>
+
+</html>

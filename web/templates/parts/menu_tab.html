@@ -1,0 +1,57 @@
+{% load static %}
+<div class="menu__tab">
+    <div class="menu__wrap">
+        <div class="menu__item menu__tab1 active">
+            <a href="/">
+                <img class="show" src="{% static '/images/ic_tab.png' %}" alt="">
+                <img class="hide" src="{% static '/images/ic_tab_active.png' %}" alt="">
+            </a>
+        </div>
+        <div class="menu__item menu__tab2">
+            <a href="/articlelist">
+                <img class="show" src="{% static '/images/ic_note.png' %}" alt="">
+                <img class="hide" src="{% static '/images/ic_note_active.png' %}" alt="">
+            </a>
+        </div>
+        <div class="menu__item menu__tabicon">
+            <a href="javascript:void(0)">
+                <img class="show" src="{% static '/images/ic_main.png' %}" alt="">
+                <img class="hide" src="{% static '/images/ic_main_active.png' %}" alt="">
+            </a>
+        </div>
+        <div class="menu__item menu__tab3">
+            <a href="/about">
+                <img class="show" src="{% static '/images/ic_heart.png' %}" alt="">
+                <img class="hide" src="{% static '/images/ic_heart_active.png' %}" alt="">
+            </a>
+        </div>
+        <div class="menu__item menu__tab4 toggleMenu">
+            <a href="javascript:void(0)">
+                <img class="show__menu" src="{% static '/images/ic_menu.png' %}" alt="">
+                <img class="hide__menu" src="{% static '/images/ic_menu_active.png' %}" alt="">
+            </a>
+            <div class="sp">
+                <nav class="nav" style="display: none;">
+                    <ul>
+                        {% if request.user.is_authenticated %}
+                        <li><a href="/profile/edit/">プロフィール編集</a></li>
+                        <li><a href="/manage">報酬管理</a></li>
+                        {% endif %}
+                        <li><a href="/account">アカウント</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="pc">
+                <nav class="nav" style="display: none;">
+                    <ul>
+                        {% if request.user.is_authenticated %}
+                        <li><a href="/profile/edit/">プロフィール編集</a></li>
+                        <li><a href="/manage">報酬管理</a></li>
+                        {% endif %}
+                        <li><a href="/account">アカウント</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

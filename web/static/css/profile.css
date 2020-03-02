@@ -1,0 +1,4 @@
+iframe[id^="twitter-widget-"] {
+  width: 100vw !important;
+  max-width: 100vw !important;
+}

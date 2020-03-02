@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LEAN!─SNSをやっている方、インフルエンサー、タレント必見。あなたのオフィシャルプロフィールが作れるシステム</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="LEAN!"/>
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta property="og:image" content="{{ OGP_URL }}">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="https://lea-n.com/signup/"/>
+    <meta property="og:site_name" content="LEAN!"/>
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378"/>
+    <meta property="fb:admins" content="680771545664378"/>
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@japan_lean"/>
+    <meta name="twitter:url" content="https://lea-n.com/signup/"/>
+    <meta name="twitter:title" content="LEAN!"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta name="twitter:image:src" content="{{ OGP_URL }}"/>
+    <meta name="twitter:site" content="LEAN!"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="{% static '/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static '/css/site_content.css' %}">
+    <link rel="stylesheet" href="{% static '/css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    {% include "parts/ga.html" with GA_TAG=GA_TAG %}
+    {% include "parts/ad_script.html" with SSP_TAG=SSP_LANDSCAPE %}
+</head>
+
+<body class="listtype">
+<div class="header__top">
+    <div class="container">
+        <!--<ul class="tabs">
+          <li class="tab__link" data-tab="tab-1"><a href="listofusers_menuclose.html">PICK UP</a></li>
+          <li class="tab__link current" data-tab="tab-2">新着</li>
+          <li class="tab__link" data-tab="tab-3"><a href="listofusers_all.html">ALL</a></li>
+        </ul>-->
+        <div class="number-members">
+            <div class="number-members-wrapp">
+                <div class="text">
+                    現在の登録
+                    <span class="count">{{ user_count }}</span>
+                    user
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="list-users-wrapper">
+            <div class="list-users">
+                {% include "parts/user_list.html" with users=first_users hasNext=hasNext %}
+            </div>
+            <div class="laenpro-banner">
+                {{ SSP_TAG_LAND|safe }}
+            </div>
+            <div id="user_list" class="list-users">
+                {% include "parts/user_list.html" with users=users hasNext=hasNext %}
+            </div>
+        </div>
+    </div>
+
+    {% if hasNext %}
+    <div class="btn-readmore">
+        <a id="btn-readmore-users"><span>MORE</span></a>
+    </div>
+    {% endif %}
+</div>
+
+
+{% include 'parts/menu.html' %}
+
+<script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static '/js/lightbox.min.js' %}"></script>
+<script src="{% static '/js/slick.min.js' %}"></script>
+<script src="{% static '/js/lightbox-video.js' %}"></script>
+<script src="{% static '/js/clipboard-polyfill.js' %}"></script>
+<script src="{% static '/js/clipboard.min.js' %}"></script>
+<script src="{% static '/js/index.js' %}"></script>
+<script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
+<script src="{% static '/js/users.js' %}{{ RES_VER }}"></script>
+
+</body>
+
+</html>

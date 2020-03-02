@@ -1,0 +1,72 @@
+[
+{
+  "model": "socialaccount.socialapp",
+  "pk": 1,
+  "fields": {
+    "provider": "line",
+    "name": "LINE",
+    "client_id": "1653563581",
+    "secret": "d5190d4070e577b722b2484b50bf185f",
+    "key": "",
+    "sites": [
+      1
+    ]
+  }
+},
+{
+  "model": "socialaccount.socialapp",
+  "pk": 2,
+  "fields": {
+    "provider": "facebook",
+    "name": "Facebook",
+    "client_id": "680771545664378",
+    "secret": "774d23377fcd7d47f216b45f5c9b25a6",
+    "key": "",
+    "sites": [
+      1
+    ]
+  }
+},
+{
+  "model": "socialaccount.socialapp",
+  "pk": 3,
+  "fields": {
+    "provider": "twitter",
+    "name": "Twitter",
+    "client_id": "ciQ9VoyTkU5GGEOlTr2xCgeNm",
+    "secret": "8umeN01NBZOJ02WuiOB9irptuNeiT3BF7qy9z0lgDYZIwsMQkP",
+    "key": "",
+    "sites": [
+      1
+    ]
+  }
+},
+{
+  "model": "socialaccount.socialapp",
+  "pk": 4,
+  "fields": {
+    "provider": "google",
+    "name": "Google",
+    "client_id": "584258871565-9lfp2tjva5dn16nbliah3i35bfif6v4l.apps.googleusercontent.com",
+    "secret": "GPIZNrWNB-fZNLuEClmTaWul",
+    "key": "",
+    "sites": [
+      1
+    ]
+  }
+},
+{
+  "model": "socialaccount.socialapp",
+  "pk": 5,
+  "fields": {
+    "provider": "instagram",
+    "name": "Instagram",
+    "client_id": "818124481973903",
+    "secret": "c1e2152affed00ee205487d6967461e5",
+    "key": "",
+    "sites": [
+      1
+    ]
+  }
+}
+]

@@ -1,0 +1,21 @@
+{% load static %}
+{% for account in users %}
+<div class="col-3" data-id="{{ account.id }}" data-has-next="{{ hasNext }}">
+    <div class="users-item style-2">
+        <div class="thumb">
+            <a href="/profile/{{ account.id }}">
+                {% if account.profile_image %}
+                <img src="/media/{{ account.profile_image }}" alt="">
+                {% else %}
+                <img src="{% static '/images/user.png' %}" alt="">
+                {% endif %}
+            </a>
+        </div>
+        <div class="infore">
+            <h3 class="name-users">
+                <a href="/profile/{{ account.id }}">{{ account.display_name }}</a>
+            </h3>
+        </div>
+    </div>
+</div>
+{% endfor %}

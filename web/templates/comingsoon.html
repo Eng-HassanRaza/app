@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Coming soon │ LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="LEAN!500 Internal Server Error"/>
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta property="og:image" content="{{ OGP_URL }}">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="https://lea-n.com/signup/"/>
+    <meta property="og:site_name" content="LEAN!"/>
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378"/>
+    <meta property="fb:admins" content="680771545664378"/>
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@japan_lean"/>
+    <meta name="twitter:url" content="https://lea-n.com/signup/"/>
+    <meta name="twitter:title" content="LEAN!500 Internal Server Error"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta name="twitter:image:src" content="{{ OGP_URL }}"/>
+    <meta name="twitter:site" content="LEAN!"/>
+    <link rel="stylesheet" href="{% static '/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static '/css/site_content.css' %}">
+    <link rel="stylesheet" href="{% static '/css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    {% include "parts/ga.html" with GA_TAG=GA_TAG %}
+</head>
+
+<body class="listtype">
+<div class="header__top">
+    <div class="container">
+        <div class="number-members">
+            <div class="number-members-wrapp">
+                <div class="text">
+                    COMING SOON
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="text__bot">
+            <div class="error">
+                <img src="{% static '/images/comingsoon.png' %}">
+            </div>
+            <p>こちらのコンテンツは現在準備中です。</p>
+            <p>近日公開いたしますのでお楽しみに。</p><br>
+            <p style="text-align:center;">
+                <a href="/">ホームに戻る</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+{% include 'parts/menu.html' %}
+<script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static '/js/lightbox.min.js' %}"></script>
+<script src="{% static '/js/slick.min.js' %}"></script>
+<script src="{% static '/js/lightbox-video.js' %}"></script>
+<script src="{% static '/js/clipboard-polyfill.js' %}"></script>
+<script src="{% static '/js/clipboard.min.js' %}"></script>
+<script src="{% static '/js/index.js' %}"></script>
+<script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
+</body>
+
+</html>

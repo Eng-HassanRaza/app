@@ -1,0 +1,22 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+{% with auth_page=request|auth_page %}
+    {% if auth_page == "login" %}
+    <script>location.href = "{% url 'web:login' %}";</script>
+    {% else %}
+    <script>location.href = "{% url 'web:signup' %}";</script>
+    {% endif %}
+{% endwith %}
+</body>
+
+</html>

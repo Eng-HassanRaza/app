@@ -1,0 +1,23 @@
+{% load static %}
+<ul class="insta_contents">
+{% with rand=instagram_list|random_int %}
+                    {% for ig_item in instagram_list %}
+                        {% if forloop.counter0 == rand %}
+                                <li>
+                                {{ SSP_TAG_POST|safe }}
+                                </li>
+                        {% endif %}
+                        {% if ig_item.type == 'CAROUSEL_ALBUM' %}
+                            <li><a class="ic1"><img src="{% static '/images/ic_clipboard.png' %}"></a></li>
+                            {% elif ig_item.type == 'VIDEO' %}
+                            <li><a class="ic2"><img src="{% static '/images/ic_camera.png' %}"></a></li>
+                            {% endif %}
+                            <li><a href="{{ ig_item.url }}">
+                                <img src="{{ ig_item.thumbnail }}" alt="">
+                            </a></li>
+                    {% endfor %}
+                {% endwith %}
+</ul>
+
+
+

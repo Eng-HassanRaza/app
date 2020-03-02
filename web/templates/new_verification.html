@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>お問い合わせ│LEAN!─SNSをやっている方、インフルエンサー、タレント必見。あなたのオフィシャルプロフィールが作れるシステム</title>
+  <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LEAN!お問い合わせ" />
+  <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+  <meta property="og:image" content="https://leanjapan.jp/i/images/ogp.png">
+  <meta property="og:image:alt" content="LEAN!ogp">
+  <meta property="og:url" content="https://leanjapan.jp/i/signup.html" />
+  <meta property="og:site_name" content="LEAN!" />
+  <!-- facebook -->
+  <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+  <meta property="fb:app_id" content="680771545664378" />
+  <meta property="fb:admins" content="680771545664378" />
+  <!-- twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@japan_lean" />
+  <meta name="twitter:url" content="https://leanjapan.jp/i/signup.html" />
+  <meta name="twitter:title" content="LEAN!お問い合わせ"/>
+  <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+  <meta name="twitter:image:src" content="https://leanjapan.jp/i/images/ogp.png" />
+  <meta name="twitter:site" content="LEAN!" />
+  <link rel="stylesheet" href="{% static 'new_static/css/site_structure_about.css' %}">
+  <link rel="stylesheet" href="{% static 'new_static/css/site_content_about.css' %}">
+  <link rel="stylesheet" href="{% static 'new_static/css/lightbox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'new_static/css/style_about.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'new_static/css/slick.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'new_static/css/slick-theme.css' %}" />
+
+  <script src="{% static 'new_static/js/jquery-3.3.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'new_static/js/slick.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'new_static/js/func_slick.js' %}"></script>
+  <style>
+
+  table, th, td {
+    border-collapse: collapse;
+    border: 1px solid #999;
+    line-height: 1.5;
+  }
+
+  table.type06 th {
+    width: 150px;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: #eee;
+    color: #787878;
+  }
+  table.type06 td {
+    width: 350px;
+    padding: 10px;
+  }
+
+  tr:nth-child(even) {
+    background: #fff;
+  }
+      .text__bot .pri a {
+        color: #27bfbb;
+      }
+
+      .text__bot .pri a:hover {
+        color: #2777bf!important;
+      }
+
+      .btn-reward {
+        margin: 0 auto;
+        padding-bottom: 6rem;
+      }
+
+      .btn-latest {
+        float: left;
+        margin-top: 30px;
+        margin-bottom: 50px;
+      }
+
+      .btn-input {
+        float: left;
+        width: 45%;
+        margin: 0 auto;
+        text-align: center;
+        color: #fff;
+        padding: 15px 20px;
+        background: #234B67;
+        font-size: 1.2rem;
+        border-radius: 20px;
+        margin-left: 12px;
+      }
+      .btn-input2 {
+        float: left;
+        width: 45%;
+        margin: 0 auto;
+        text-align: center;
+        color: #234B67;
+        padding: 15px 20px;
+        background: #fff;
+        border:solid 1px #234B67;
+        font-size: 1.2rem;
+        border-radius: 20px;
+        margin-left: 5px;
+      }
+      .btn-input2:hover {
+        color: #234B67;
+        background: #e4e9ec;
+      }
+      .btn-latest a {
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+        text-align: center;
+        color: #fff;
+        padding: 15px 20px;
+        background: #234B67;
+        font-size: 1.2rem;
+        border-radius: 20px;
+      }
+
+      .btn-latest a:hover{
+        color: #91A5B3 !important;
+      }
+
+      .btn-latest span {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .btn-latest span:before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        transform: rotate(45deg);
+      }
+      .btn-latest2 {
+        float: left;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        margin-left: 20px;
+      }
+      .btn-latest2 a {
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+        text-align: center;
+        color: #234B67;
+        padding: 15px 20px;
+        background: #fff;
+        border:solid 1px #234B67;
+        font-size: 1.2rem;
+        border-radius: 20px;
+      }
+
+      .btn-latest a:hover{
+        color: #91A5B3 !important;
+      }
+
+      .btn-latest span {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .btn-latest span:before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        transform: rotate(45deg);
+      }
+
+  </style>
+</head>
+
+<body class="listtype">
+  <div class="maxwidth">
+    <div class="content">
+      <div class="container_about laenpro-banner">
+        <div class="box"></div>
+        <div class="number-members">
+          <div class="number-members-wrapp">
+            <div class="text">
+              お問い合わせ確認
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>&nbsp;</p>
+      <div class="container">
+        <div class="text__bot">
+          <p>&nbsp;</p>
+          <div class="article__box2">
+            <div class="article__detail article__box__info2">
+              <div class="edit">
+                <p class="editname">確認画面</p>
+                <form action="{% url 'web:thanks_contact' %}" method="post">
+                    {% csrf_token %}
+				  <div class="fields" hidden="hidden">
+                        <div class="field half">
+                            <input type="hidden" name="ab_name" id="name" value="{{ name }}" required/>
+                        </div>
+                        <div class="field half">
+                            <input type="hidden" name="ab_email" id="email" value="{{ email }}" required/>
+                        </div>
+                        <div class="field">
+                            <textarea name="ab_desc" type="hidden" id="message" rows="4" {{ desc }}required></textarea>
+                        </div>
+                    </div>
+
+				  <span style="color:#234d6a;font-weight:bold;">お名前</span>
+                  <p>{{ name }} </p>
+                  <span style="color:#234d6a;font-weight:bold;">メールアドレス</span>
+                  <p> {{ email }} </p>
+                  <span style="color:#234d6a;font-weight:bold;">お問い合わせ</span>
+                  <p> {{ desc }} </p>
+                  <p>&nbsp;</p>
+                  <div class="btn-reward">
+                    <input type="submit" value="送信する" class="btn-input">
+                    <a href="/">
+                      <div class="btn-input2 btn-reward">戻る
+                      </div>
+                    </a>
+                  </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
+          <script src="{% static 'new_static/js/slick.min.js' %}"></script>
+          <script src="{% static 'new_static/js/lightbox-video.js' %}"></script>
+          <script src="{% static 'new_static/js/index.js' %}"></script>
+
+        </body>
+
+        </html>

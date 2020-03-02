@@ -1,0 +1,119 @@
+{% load static %}
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>新規登録│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="LEAN!新規登録新規登録"/>
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta property="og:image" content="{{ OGP_URL }}">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="{{ OGP_URL }}"/>
+    <meta property="og:site_name" content="LEAN!"/>
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378"/>
+    <meta property="fb:admins" content="680771545664378"/>
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@japan_lean"/>
+    <meta name="twitter:url" content="{{ OGP_URL }}"/>
+    <meta name="twitter:title" content="LEAN!新規登録"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta name="twitter:image:src" content="{{ OGP_URL }}"/>
+    <meta name="twitter:site" content="LEAN!"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="{% static '/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static '/css/site_content.css' %}">
+    {% include "parts/ga.html" with GA_TAG=GA_TAG %}
+    <style>
+    .errorlist {
+        color: red;
+        margin-top: 0.2rem;
+        text-align: center;
+    }
+
+    </style>
+</head>
+
+<body>
+<div class="header__top signup">
+    <div class="container">
+        <a class="btn btn__back" href=""></a>
+        <!--
+        <a class="btn btn__register" href=""><span>LEAN!への登録</span></a>
+      -->
+        <div class="signup_logo">
+            <img src="{% static '/images/signup_logo.png' %}">
+        </div>
+    </div>
+</div>
+
+<div class="form__signup">
+    <div class="container">
+        <div>
+            {% if messages %}
+            <ul class="errorlist">
+                {% for message in messages %}
+                {% if message.tags == "error" %}
+                <li>{{ message }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="btn__regis__group">
+            <div class="signup_sns">
+                <a class="btn_gg" href="{% provider_login_url 'google' next='/thanks' %}">
+                    <img src="{% static '/images/sns_signup2_gg.png' %}">
+                    <img class="img_hover" src="{% static '/images/sns_signup2_gg2.png' %}">
+                </a>
+                <a class="btn_fb" href="{% provider_login_url 'facebook' next='/thanks' %}">
+                    <img src="{% static '/images/sns_signup2_fe.png' %}">
+                    <img class="img_hover" src="{% static '/images/sns_signup2_fe2.png' %}">
+                </a>
+                <a class="btn_tw" href="{% provider_login_url 'twitter' next='/thanks' %}">
+                    <img src="{% static '/images/sns_signup2_tw.png' %}">
+                    <img class="img_hover" src="{% static '/images/sns_signup2_tw2.png' %}">
+                </a>
+                <a class="btn_li" href="{% provider_login_url 'line' next='/thanks' %}">
+                    <img src="{% static '/images/sns_signup2_li.png' %}">
+                    <img class="img_hover" src="{% static '/images/sns_signup2_li2.png' %}">
+                </a>
+            </div>
+            <div class="form__link">新規登録により<a href="/tos"><span class="text__underline">利用規約</span></a>・<a
+                    href="/policy"><span class="text__underline">プライバシーポリシー</span></a>に同意してるものとみなされます
+            </div>
+            <p>&nbsp;</p>
+            <div class="form__link">
+                <p>アカウントを既にお持ちですか？<br><a href="/login"><span class="text__underline">ログインへ</span></a>></div>
+            </p>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer">
+        <p>&nbsp;</p>
+    </div>
+    　　
+</footer>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="{% static '/js/clipboard-polyfill.js' %}"></script>
+<script src="{% static '/js/clipboard.min.js' %}"></script>
+<script src="{% static '/js/index.js' %}"></script>
+<script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+Multiverse by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	<title>LEAN!にようこそ│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="LEAN!" />
+	<meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+	<meta property="og:image" content="https://lea-n.com/ogp.png">
+	<meta property="og:image:alt" content="LEAN!ogp">
+	<meta property="og:url" content="https://leanjapan.jp/i/signup.html" />
+	<meta property="og:site_name" content="LEAN!" />
+	<!-- facebook -->
+	<meta property="article:author" content="https://www.facebook.com/leanjapan/">
+	<meta property="fb:app_id" content="680771545664378" />
+	<meta property="fb:admins" content="680771545664378" />
+	<!-- twitter card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@japan_lean" />
+	<meta name="twitter:url" content="https://leanjapan.jp/i/signup.html" />
+	<meta name="twitter:title" content="LEAN!"/>
+	<meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+	<meta name="twitter:image:src" content="https://lea-n.com/ogp.png" />
+	<meta name="twitter:site" content="LEAN!" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{% static 'new_static/assets/css/main.css' %}" />
+	<noscript><link rel="stylesheet" href="{% static 'new_static/assets/css/noscript.css' %}" /></noscript>
+</head>
+<body class="is-preload">
+    	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="/"><strong>LEAN!</strong></a></h1>
+			<nav>
+				<ul>
+					<li><a href="#footer" class="icon solid fa-info-circle">About</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+        {% include "parts/new_user_list.html" with users=first_users hasNext=hasNext %}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/02.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/02.jpg' %}" alt="" /></a>#}
+{#				<h2>Nisl adipiscing</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/03.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/03.jpg'%}" alt="" /></a>#}
+{#				<h2>Tempus aliquam veroeros</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/04.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/04.jpg' %}" alt="" /></a>#}
+{#				<h2>Aliquam ipsum sed dolore</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/05.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/05.jpg' %}" alt="" /></a>#}
+{#				<h2>Cursis aliquam nisl</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/06.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/06.jpg' %}" alt="" /></a>#}
+{#				<h2>Sed consequat phasellus</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/07.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/07.jpg' %}" alt="" /></a>#}
+{#				<h2>Mauris id tellus arcu</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/08.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/08.jpg' %}" alt="" /></a>#}
+{#				<h2>Nunc vehicula id nulla</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/09.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/09.jpg' %}" alt="" /></a>#}
+{#				<h2>Neque et faucibus viverra</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/10.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/10.jpg' %}" alt="" /></a>#}
+{#				<h2>Mattis ante fermentum</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/11.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/11.jpg' %}" alt="" /></a>#}
+{#				<h2>Sed ac elementum arcu</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+{#			<article class="thumb">#}
+{#				<a href="{% static 'new_static/images/fulls/12.jpg'%}" class="image"><img src="{% static 'new_static/images/thumbs/12.jpg' %}" alt="" /></a>#}
+{#				<h2>Vehicula id nulla dignissim</h2>#}
+{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
+{#			</article>#}
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer" class="panel">
+			<div class="inner split">
+				<div>
+					<section>
+						<div class="text">
+							現在の登録
+							<span class="count">{{ user_count }}</span>
+							user
+						</div>
+                        <p>&nbsp;</p>
+                        <div class="about">
+                            <p> LEAN! - SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです。
+                                あなたのInstagram、Youtube、Twitter等を連携表示したオフィシャルプロフィールページを自動生成。
+                                あなたのオフィシャルページが簡単ステップで作れちゃいます！</p>
+                            <p><a href="signup.html">新規登録</a>　/　<a href="login.html">ログイン</a><br ></p>
+                            <p>各種お問い合わせは以下のフォームよりお願い致します</p>
+                        </div>
+					</section>
+
+	            </div>
+	            <div>
+		        <section>
+			    <h2>お問い合わせ</h2>
+			    <form method="post" action="{% url 'web:about_verification' %}">
+                    {% csrf_token %}
+                    <div class="fields">
+                        <div class="field half">
+                            <input type="text" name="ab_name" id="name" placeholder="お名前" required/>
+                        </div>
+                        <div class="field half">
+                            <input type="email" name="ab_email" id="email" placeholder="Email" required/>
+                        </div>
+                        <div class="field">
+                            <textarea name="ab_desc" id="message" rows="4" placeholder="お問い合わせ" required></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="送る" class="primary" /></li>
+                        <li><input type="reset" value="リセット" /></li>
+                    </ul>
+			    </form>
+			    <p class="copyright">
+				&copy; Unttled. Design: <a href="https://lea-n.com/">LEAN!</a>.
+			</p>
+		    </section>
+	        </div>
+            </div>
+        </footer>
+
+    </div>
+<!-- Scripts -->
+<script src="{% static 'new_static/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'new_static/assets/js/browser.min.js' %}"></script>
+<script src="{% static 'new_static/assets/js/breakpoints.min.js' %}"></script>
+<script src="{% static 'new_static/assets/js/util.js'%}"></script>
+<script src="{% static 'new_static/assets/js/main.js' %}"></script>
+
+</body>
+</html>
+
+
+

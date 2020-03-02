@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LEAN!にようこそ│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="LEAN!にようこそ"/>
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta property="og:image" content="{{ OGP_URL }}">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="https://lea-n.com/signup/" />
+    <meta property="og:site_name" content="LEAN!"/>
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378"/>
+    <meta property="fb:admins" content="680771545664378"/>
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@japan_lean"/>
+    <meta name="twitter:url" content="https://lea-n.com/signup/" />
+    <meta name="twitter:title" content="LEAN!にようこそ"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta name="twitter:image:src" content="{{ OGP_URL }}"/>
+    <meta name="twitter:site" content="LEAN!"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="{% static '/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static '/css/site_content.css' %}">
+    <link rel="stylesheet" href="{% static '/css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    {% include "parts/ga.html" with GA_TAG=GA_TAG %}
+</head>
+
+<body class="listtype">
+<div class="header__top">
+    <div class="container">
+        <!--<ul class="tabs">
+          <li class="tab__link" data-tab="tab-1"><a href="listofusers_menuclose.html">PICK UP</a></li>
+          <li class="tab__link current" data-tab="tab-2">新着</li>
+          <li class="tab__link" data-tab="tab-3"><a href="listofusers_all.html">ALL</a></li>
+        </ul>-->
+        <div class="number-members">
+            <div class="number-members-wrapp">
+                <div class="text">
+                    LEAN!にようこそ
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="signup_logo">
+            <img src="{% static '/images/signup_logo.png' %}">
+        </div>
+        <p>&nbsp;</p>
+        <div class="text__bot">
+            <p style="text-align:center;">Instagram, Youtube, twitter, blog, tiktok...SNSをがんばる方が今日から使える無料プロツール</p>
+            <p style="text-align:center;">- 自動収益化+ブランディング+フォロワー増加 -</p>
+        </div>
+        <div class="text__bot">
+            <p>楽しいままで、SNSで食べていける。SNSが仕事になる。そんなシステムです。</p>
+        </div>
+        <div class="text__top">
+            <p>LEAN!紹介 MOVIE</p>
+        </div>
+
+        <div class="iframe">
+            <iframe width="1080" height="608" src="https://www.youtube.com/embed/9vGMWAU7nUo" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="text__bot">
+            <p>&nbsp;</p>
+        </div>
+        <div class="text__top">
+            アフターフォロー
+        </div>
+        <div class="laenpro-banner">
+            <img src="{% static '/images/image.jpg' %}" alt="">
+        </div>
+        <div class="text__bot">
+            <p>フォロワーの増やし方や、ブランディング手法、また、アクセスを向上させるためのコンテンツ制作方法など、最先端の情報を継続配信。時には有名インフルエンサーやタレントが登場しての解説も。</p>
+
+            <p>登録したものの、どう使えばわからないという心配はありません。フォロワーの増やし方、ブランディングの仕方、そして「正しい」収益の上げ方、を身に着けることが可能です。</p>
+        </div>
+        <div class="text__top">
+            さらにあなたのページにアクセスを送り込む強烈な支援機能も準備中。ご利用は永遠に無料です。
+        </div>
+        <p>&nbsp;</p>
+        <div class="share__login">
+            <a class="btn btn__leanpro2" href="/signup"><span>今すぐ無料登録</span></a>
+        </div>
+    </div>
+</div>
+
+{% include 'parts/menu.html' %}
+
+<script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static '/js/lightbox.min.js' %}"></script>
+<script src="{% static '/js/slick.min.js' %}"></script>
+<script src="{% static '/js/lightbox-video.js' %}"></script>
+<script src="{% static '/js/clipboard-polyfill.js' %}"></script>
+<script src="{% static '/js/clipboard.min.js' %}"></script>
+<script src="{% static '/js/index.js' %}"></script>
+<script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
+
+</body>
+
+</html>

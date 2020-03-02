@@ -1,0 +1,76 @@
+{% load static %}
+<div class="menu">
+    <div class="menu__tab">
+      <div class="menu__wrap">
+       <div class="menu__item menu__tab1 ">
+            <a href="{% url 'web:profile_long_insta' account.id %} ">
+                <img class="show" src="{% static 'new_static/images/ic_instagram.png' %}" alt="">
+                <img class="hide" src="{% static 'new_static/images/ic_instagram.png' %}" alt="">
+            </a>
+        </div>
+        <div class="menu__item menu__tab2">
+            <a href="{% url 'web:profile_long_twitter' account.id %}">
+                <img class="show" src="{% static 'new_static/images/ic_twitter.png' %}" alt="">
+                <img class="hide" src="{% static 'new_static/images/ic_twitter.png' %}" alt="">
+            </a>
+        </div>
+        <div class="menu__item menu__tabicon">
+          <a href="javascript:void(0)">
+            <img class="show" src="{% static 'new_static/images/ic_main.png' %}" alt="">
+            <img class="hide" src="{% static 'new_static/images/ic_main_active.png' %}" alt="">
+          </a>
+        </div>
+        <div class="menu__item menu__tab3">
+          <a href="{% url 'web:profile_long_youtube' account.id %}">
+            <img class="show" src="{% static 'new_static/images/ic_youtube.png' %}" alt="">
+            <img class="hide" src="{% static 'new_static/images/ic_youtube.png' %}" alt="">
+          </a>
+        </div>
+        <div class="menu__item menu__tab4 toggleMenu">
+            <a href="javascript:void(0)">
+                <img class="show__menu" src="{% static 'new_static/images/ic_01.png' %}" alt="">
+                <img class="hide__menu" src="{% static 'new_static/images/ic_01.png' %}" alt="">
+            </a>
+            <div class="sp">
+                <nav class="nav" style="display: none;">
+                    <ul>
+                        <li><a href="profile_new.html">プロフィール編集</a></li>
+                        <li><a href="manage.html">報酬確認</a></li>
+                        <li><a href="account.html">その他</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="pc">
+                <nav class="nav" style="display: none;">
+                    <ul>
+                        <li><a href="{% url 'web:profile' %}">プロフィール編集</a></li>
+                        <li><a href="">報酬確認</a></li>
+                        <li><a href="">その他</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="share">
+      <div class="overlay"></div>
+      <div class="share__popup">
+        <div class="share__top row__cen_mid">
+          <div>Share</div>
+          <div>-</div>
+          <div>ログインしてシェアすると<br>Pointがもらえます</div>
+        </div>
+        <div class="share__btns">
+          <div class="share__login">
+            <a class="btn btn__leanpro" href="login.html"><span>ログイン</span></a>
+          </div>
+          <ul>
+            <li><a href=""><img src="{% static 'new_static/images/line_img.png' %}" alt=""><span>LINE</span></a></li>
+            <li><a href=""><img src="{% static 'new_static/images/twitter_img.png' %}" alt=""><span>Twitter</span></a></li>
+            <li><a href=""><img src="{% static 'new_static/images/facebook_img.png' %}" alt=""><span>Facebook</span></a></li>
+            <li><a href=""><img src="{% static 'new_static/images/url_img.png' %}" alt=""><span>URLをコピー</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

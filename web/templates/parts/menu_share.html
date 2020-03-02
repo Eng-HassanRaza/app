@@ -1,0 +1,71 @@
+{% load static %}
+{% load custom_filters %}
+<div class="share">
+    <div class="overlay"></div>
+    <div class="share__popup">
+        <div class="share__top row__cen_mid">
+            <div>Share</div>
+
+            {% if not request.user.is_authenticated %}
+            <div>-</div>
+            <div>ログインしてシェアすると<br>
+                Pointがもらえます
+            </div>
+            {% endif %}
+        </div>
+        <div class="share__btns">
+            {% if not request.user.is_authenticated %}
+            <div class="share__login">
+                <a class="btn btn__leanpro" href="/login"><span>ログイン</span></a>
+            </div>
+            {% endif %}
+            <ul>
+                <li>
+                    <a target="_blank" rel="noopener"
+                       {% if not request.user.is_authenticated %}
+                       href="https://social-plugins.line.me/lineit/share?url={{ request|current_url|add:'?openExternalBrowser=1'|urlencode:'' }}"
+                       {% else %}
+                       href="https://social-plugins.line.me/lineit/share?url={{ request|current_url|add:'?id='|add:request.user.account.page_id|add:'&openExternalBrowser=1'|urlencode:'' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/line_img.png' %}" alt=""><span>LINE</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" rel="noopener"
+                       {% if not request.user.is_authenticated %}
+                       href="https://twitter.com/intent/tweet?text={{ request|current_url|urlencode:'' }}"
+                       {% else %}
+                       href="https://twitter.com/intent/tweet?text={{ request|current_url|add:'?id='|add:request.user.account.page_id|urlencode:'' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/twitter_img.png' %}" alt=""><span>Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" rel="noopener"
+                       {% if not request.user.is_authenticated %}
+                       href="https://www.facebook.com/share.php?u={{ request|current_url|urlencode:'' }}"
+                       {% else %}
+                       href="https://www.facebook.com/share.php?u={{ request|current_url|add:'?id='|add:request.user.account.page_id|urlencode:'' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/facebook_img.png' %}" alt="">
+                        <span>Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="copy"
+                       {% if not request.user.is_authenticated %}
+                       data-clipboard-text="{{ request|current_url|add:'?openExternalBrowser=1' }}"
+                       {% else %}
+                       data-clipboard-text="{{ request|current_url|add:'?id='|add:request.user.account.page_id|add:'&openExternalBrowser=1' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/url_img.png' %}" alt=""><span>URLをコピー</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

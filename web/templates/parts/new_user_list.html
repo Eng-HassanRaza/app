@@ -1,0 +1,14 @@
+{% load static %}
+{% for account in users %}
+    <article class="thumb">
+        <a href="/profile/{{ account.id }}" class="image">
+             {% if account.profile_image %}
+                <img src="/media/{{ account.profile_image }}" alt="">
+            {% else %}
+                <img src="{% static '/images/user.png' %}" alt="">
+            {% endif %}
+        </a>
+        <h2>{{ account.display_name }}★</h2>
+        <p> </p>
+    </article>
+{% endfor %}

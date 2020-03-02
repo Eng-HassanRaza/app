@@ -1,0 +1,22 @@
+{% load static %}
+{% load custom_filters %}
+{% with rand=instagram_list|random_int %}
+    {% for ig_item in instagram_list %}
+        {% if forloop.counter0 == rand %}
+            <div class="item">
+                {{ SSP_TAG_POST|safe }}
+            </div>
+        {% endif %}
+
+        <div class="item" data-id="{{ ig_item.id }}" data-has-next="{{ instagram_list.has_next }}">
+            {% if ig_item.type == 'CAROUSEL_ALBUM' %}
+            <a class="ic1"><img src="{% static '/images/ic_clipboard.png' %}"></a>
+            {% elif ig_item.type == 'VIDEO' %}
+            <a class="ic2"><img src="{% static '/images/ic_camera.png' %}"></a>
+            {% endif %}
+            <a href="{{ ig_item.url }}">
+                <img src="{{ ig_item.thumbnail }}" alt="">
+            </a>
+        </div>
+    {% endfor %}
+{% endwith %}

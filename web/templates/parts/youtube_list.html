@@ -1,0 +1,30 @@
+{% load custom_filters %}
+{% if youtube_list %}
+{% with rand=youtube_list|random_int %}
+    {% for yt_item in youtube_list %}
+        {% if forloop.counter0 == rand %}
+            <li>
+        <div class="box_video_item">
+            {{ SSP_TAG_POST|safe }}
+        </div>
+            </li>
+        {% endif %}
+        <li>
+        <a href="{{ yt_item.url }}" class="box_video_item" data-id="{{ yt_item.id }}"
+           data-has-next="{{ youtube_list.has_next }}">
+                <div class="video">
+                    <div class="image-box">
+                        <img src="{{ yt_item.thumbnail }}" alt="">
+                        <span class="time">{{ yt_item.time }}</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <h3>{{ yt_item.title|truncatechars:29 }}</h3>
+                    <span class="date">{{ yt_item.publish_at|date:"Y/m/d" }}<span class="type">アップロード</span></span>
+                    <p>{{ yt_item.details|truncatechars:16 }}</p>
+                </div>
+        </a>
+        </li>
+    {% endfor %}
+{% endwith %}
+{% endif %}

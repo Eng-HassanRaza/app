@@ -1,0 +1,266 @@
+{% load static %}
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>プロフィール編集│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="LEAN!"/>
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta property="og:image" content="{{ OGP_URL }}">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="https://lea-n.com/signup/" />
+    <meta property="og:site_name" content="LEAN!"/>
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378"/>
+    <meta property="fb:admins" content="680771545664378"/>
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@japan_lean"/>
+    <meta name="twitter:url" content="https://lea-n.com/signup/" />
+    <meta name="twitter:title" content="LEAN!"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
+    <meta name="twitter:image:src" content="{{ OGP_URL }}"/>
+    <meta name="twitter:site" content="LEAN!"/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="{% static '/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static '/css/site_content.css' %}">
+    <link rel="stylesheet" href="{% static '/css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    {% include "parts/ga.html" with GA_TAG=GA_TAG %}
+    <style>
+        .errorlist {
+            color: red;
+            margin-top: 0.2rem;
+        }
+    </style>
+</head>
+
+<body class="listtype">
+<div class="header__top">
+    <div class="container">
+        <!--<ul class="tabs">
+          <li class="tab__link" data-tab="tab-1"><a href="listofusers_menuclose.html">PICK UP</a></li>
+          <li class="tab__link current" data-tab="tab-2">新着</li>
+          <li class="tab__link" data-tab="tab-3"><a href="listofusers_all.html">ALL</a></li>
+        </ul>-->
+        <div class="number-members">
+            <div class="number-members-wrapp">
+                <div class="text">
+                    プロフィール編集
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form id="form" name="form" method="POST" action="{% url 'web:profile' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="content">
+        <div class="container">
+            {% if messages %}
+                <ul class="errorlist">
+                    {% for message in messages %}
+                        {% if message.tags == "error" %}<li>{{ message }}</li> {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <div class="text__bot">
+                <p>このページよりプロフィール情報を編集できます。ご自身の長所や特徴をうまく伝えてファンを作りましょう。</p>
+                <p>また、プロフィールの情報をもとにLEAN!からお仕事を発注していきます。詳細な情報を入れれば入れるほどお仕事がよせられやすくなりますので、ご期待ください。</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="article__box2">
+                    <div class="article__detail article__box__info2">
+                        <div class="edit">
+                            <p class="editname">LEAN！を紹介するとポイントがもらえます。</p>
+                            <p class="textdes">※ポイントについては、<a href="/about#reward">こちら</a>のページの【報酬について】をご確認ください</p>
+                            <span style="color:#234d6a;font-weight:bold;">インフルエンサー紹介URL</span>
+                            <p><input type="text"
+                                      placeholder="https://{{ request.get_host }}/invite/{{ account.page_id }}?openExternalBrowser=1"
+                                      size="36" maxlength="160" readonly="readonly"></p>
+                            <div class="btn-edit3">
+                                <a class="copy" data-clipboard-text="https://{{ request.get_host }}/invite/{{ account.page_id }}?openExternalBrowser=1">紹介URLをコピーする</a>　　　　　　　　
+                            </div>
+                        </div>　　　　　　　　　
+                    </div>　　　　　
+                </div>
+            </div>
+            <div class="edit">
+                    <p class="editname2">公開情報設定</p>
+                    <p class="textdes">オフィシャルプロフィールページに公開される情報です。</p>
+                    <p class="editname">ユーザーアイコン設定</p>
+                    <div id="preview" class="avater2">
+                        {% if form.profile_image.value %}
+                        <img src="/media/{{ form.profile_image.value }}" alt="">
+                        {% else %}
+                        <img src="{% static '/images/user.png' %}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="btn-edit2">
+                        <input id="profile_image" type="file" name="profile_image" style="display:none;"/>
+                        <a onclick="document.form.profile_image.click();">編集</a>
+                    </div>
+                    {{ form.profile_image.errors }}
+
+                    <p class="editname">ユーザーネーム　【必須】</p>
+                    <p><input type="text" name="display_name" required value="{{ form.display_name.value|default:'' }}">
+                    </p>
+                    {{ form.display_name.errors }}
+
+                    <p class="editname">公開設定</p>
+                    <p class="textdes">非公開は、オフィシャルプロフィールページは公開せず仕事の依頼だけを受け取る設定です</p>
+                    <div>
+                      <label for="is_private_false">
+                          <input id="is_private_false" type="radio" name="is_private" value="False"
+                                 {% if not form.is_private.value %} checked {% endif %}>
+                          <span>公開</span>
+                      </label>
+                      <label for="is_private_true">
+                          <input id="is_private_true" type="radio" name="is_private" value="True"
+                                 {% if form.is_private.value %} checked {% endif %}>
+                          <span>非公開</span>
+                      </label>
+                    </div>
+                    {{ form.is_private.errors }}
+
+                    <p class="editname">お仕事連絡用メールアドレス　【任意】</p>
+                    <p class="textdes">こちらにメールアドレスを入力しておくと、LEAN JAPANからお仕事の依頼を連絡することがあります。入力を強くおすすめいたします。</p>
+                    <p><input type="email" name="work_email" value="{{ form.work_email.value|default:'' }}"></p>
+                    {{ form.work_email.errors }}
+
+                    <p class="editname">プロフィール　【必須】</p>
+                    <p class="textdes">自分のプロフィールを入力。400文字まで可能。</p>
+                    <p><textarea name="profile" rows="5" cols="40"
+                                 required>{{ form.profile.value|default:'' }}</textarea></p>
+                    {{ form.profile.errors }}
+
+                    <p class="editname">各SNS連携　【１つ以上必須】</p>
+                    <p class="textdes">所持SNSを１つ以上連携してください。連携をすると、オフィシャルプロフィールページにタイムラインと広告が表示され、広告収益が発生します。<br/>※SNS説明には、どのような内容を更新しているのか、あなたのSNSについて簡単な説明を入力しましょう。
+                    </p>
+                    <p class="editname">Instagram</p>
+                    <div class="btn-edit">
+                        {% if not request.user.account.instagram_token %}
+                        <a class="sns-link" data-href="/auth/ig/login/">連携</a>
+                        {% else %}
+                        <a class="sns-link" data-href="/auth/ig/logout/">連携解除</a>
+                        {% endif %}
+                        <p class="textdes">Instagram説明　【連携したら記入必須】</p>
+                        <p><input type="text" name="instagram_comment" placeholder="どんな用途で使用しているか"
+                                  size="36" maxlength="160" value="{{ form.instagram_comment.value|default:'' }}"
+                                  {% if not request.user.account.instagram_token %} disabled {% else %} required {% endif %}
+                        >
+                            <br/>※160文字まで。</p>
+                    </div>
+                    {{ form.instagram_comment.errors }}
+
+                    <p class="editname">YouTube</p>
+                    <div class="btn-edit">
+                        {% if not request.user.account.youtube_token %}
+                        <a class="sns-link" data-href="/auth/yt/login/">連携</a>
+                        {% else %}
+                        <a class="sns-link" data-href="/auth/yt/logout/">連携解除</a>
+                        {% endif %}
+                        <p class="textdes">YouTube説明　【連携したら記入必須】</p>
+                        <p><input type="text" name="youtube_comment" placeholder="どんな用途で使用しているか"
+                                  size="36" maxlength="160" value="{{ form.youtube_comment.value|default:'' }}"
+                                  {% if not request.user.account.youtube_token %} disabled {% else %} required {% endif %}
+                        >
+                            <br/>※160文字まで。</p>
+                    </div>
+                    {{ form.youtube_comment.errors }}
+
+                    <p class="editname">Twitter</p>
+                    <div class="btn-edit">
+                        {% if not request.user.account.twitter_token %}
+                        <a class="sns-link" data-href="/auth/tw/login/">連携</a>
+                        {% else %}
+                        <a class="sns-link" data-href="/auth/tw/logout/">連携解除</a>
+                        {% endif %}
+                        <p class="textdes">Twitter説明　【連携したら記入必須】</p>
+                        <p><input type="text" name="twitter_comment" placeholder="どんな用途で使用しているか"
+                                  size="36" maxlength="160" value="{{ form.twitter_comment.value|default:'' }}"
+                                  {% if not request.user.account.twitter_token %} disabled {% else %} required {% endif %}
+                        >
+                            <br/>※160文字まで。</p>
+                    </div>
+                    {{ form.twitter_comment.errors }}
+
+                    <p>&nbsp;</p>
+                    <p class="editname2">非公開情報設定</p>
+                    <p class="textdes">
+                        オフィシャルプロフィールページには公開されない情報です。LEAN!管理者とお仕事の依頼者のみが閲覧可能であり、お仕事依頼の営業に使わせていただきます。非公開情報をしっかりと入力することでお仕事依頼率は数倍になります。</p>
+                    <p class="editname">都道府県（選択してください）</p>
+                    {{ form.prefecture }}
+                    {{ form.prefecture.errors }}
+
+                    <p class="editname">活動エリア（市町村や駅名まで※複数可）</p>
+                    <p><input type="text" name="active_place" value="{{ form.active_place.value|default:'' }}"></p>
+                    {{ form.active_place.errors }}
+
+                    <p class="editname">出身地（市町村や駅名まで）</p>
+                    <p><input type="text" name="birth_place" value="{{ form.birth_place.value|default:'' }}"></p>
+                    {{ form.birth_place.errors }}
+
+                    <p class="editname">身長</p>
+                    <p><input type="text" name="height" value="{{ form.height.value|default:'' }}"></p>
+                    {{ form.height.errors }}
+
+                    <p class="editname">活動ジャンル</p>
+                    <div id="hoge">
+                        {% for genre in form.activity_genres %}
+                        {{ genre }}
+                        {% endfor %}
+                    </div>
+
+                    <p class="editname">生年月日</p>
+                    <input type="date" name="birth_day" value="{{ form.birth_day.value|date:'Y-m-d'|default:form.birth_day.value }}">
+                    {{ form.birth_day.errors }}
+
+                    <p class="editname">性別</p>
+                    {% for gender in form.gender %}
+                        {{ gender }}
+                    {% endfor %}
+                    {{ form.gender.errors }}
+
+                    <p class="editname">お仕事依頼者へのPR　【任意】</p>
+                    <p class="textdes">※どのような活動をしているのか、どのような実績や長所があるのか等を語ってください。お仕事依頼率が劇的に向上します。</p>
+                    <p><textarea name="pr" rows="6" cols="40">{{ form.pr.value|default:'' }}</textarea></p>
+                    {{ form.pr.errors }}
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <div class="btn-readmore2">
+                        <a onclick="document.getElementById('confirm').click();">完了</a>
+                        <input type="submit" id="confirm" style="display: none;">
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</form>
+
+
+{% include 'parts/menu.html' %}
+
+<script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static '/js/lightbox.min.js' %}"></script>
+<script src="{% static '/js/slick.min.js' %}"></script>
+<script src="{% static '/js/lightbox-video.js' %}"></script>
+<script src="{% static '/js/clipboard-polyfill.js' %}"></script>
+<script src="{% static '/js/clipboard.min.js' %}"></script>
+<script src="{% static '/js/index.js' %}"></script>
+<script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
+<script src="{% static '/js/profile_edit.js' %}{{ RES_VER }}"></script>
+
+</body>
+
+</html>
