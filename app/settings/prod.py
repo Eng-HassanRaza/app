@@ -4,6 +4,7 @@ DEBUG = True
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+STATIC_URL = '/new_static/'
 DATABASES = {
  'default': {
  # 'ENGINE': 'django.db.backends.mysql',
