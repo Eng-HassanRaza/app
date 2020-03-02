@@ -40,7 +40,7 @@ def leave(request):
     if not request.user.is_authenticated:
         return redirect("/")
 
-    return render(request, 'leave.html')
+    return render(request, 'new_leave.html')
 
 
 @require_GET

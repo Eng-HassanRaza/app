@@ -34,9 +34,9 @@
             <div class="sp">
                 <nav class="nav" style="display: none;">
                     <ul>
-                        <li><a href="profile_new.html">プロフィール編集</a></li>
-                        <li><a href="manage.html">報酬確認</a></li>
-                        <li><a href="account.html">その他</a></li>
+                        <li><a href="{% url 'web:profile' %}">プロフィール編集</a></li>
+                        <li><a href="">報酬確認</a></li>
+                        <li><a href="{% url 'web:account' %}">その他</a></li>
                     </ul>
                 </nav>
             </div>
@@ -45,7 +45,7 @@
                     <ul>
                         <li><a href="{% url 'web:profile' %}">プロフィール編集</a></li>
                         <li><a href="">報酬確認</a></li>
-                        <li><a href="">その他</a></li>
+                        <li><a href="{% url 'web:account' %}">その他</a></li>
                     </ul>
                 </nav>
             </div>
@@ -57,19 +57,60 @@
       <div class="share__popup">
         <div class="share__top row__cen_mid">
           <div>Share</div>
-          <div>-</div>
-          <div>ログインしてシェアすると<br>Pointがもらえます</div>
+{#          <div>-</div>#}
+{#          <div>ログインしてシェアすると<br>Pointがもらえます</div>#}
         </div>
         <div class="share__btns">
-          <div class="share__login">
-            <a class="btn btn__leanpro" href="login.html"><span>ログイン</span></a>
-          </div>
+{#          <div class="share__login">#}
+{#            <a class="btn btn__leanpro" href="{% url 'web:login' %}"><span>ログイン</span></a>#}
+{#          </div>#}
           <ul>
-            <li><a href=""><img src="{% static 'new_static/images/line_img.png' %}" alt=""><span>LINE</span></a></li>
-            <li><a href=""><img src="{% static 'new_static/images/twitter_img.png' %}" alt=""><span>Twitter</span></a></li>
-            <li><a href=""><img src="{% static 'new_static/images/facebook_img.png' %}" alt=""><span>Facebook</span></a></li>
-            <li><a href=""><img src="{% static 'new_static/images/url_img.png' %}" alt=""><span>URLをコピー</span></a></li>
-          </ul>
+                <li>
+                    <a target="_blank" rel="noopener"
+                       {% if not request.user.is_authenticated %}
+                       href="https://social-plugins.line.me/lineit/share?url={{ request|current_url|add:'?openExternalBrowser=1'|urlencode:'' }}"
+                       {% else %}
+                       href="https://social-plugins.line.me/lineit/share?url={{ request|current_url|add:'?id='|add:request.user.account.page_id|add:'&openExternalBrowser=1'|urlencode:'' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/line_img.png' %}" alt=""><span>LINE</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" rel="noopener"
+                       {% if not request.user.is_authenticated %}
+                       href="https://twitter.com/intent/tweet?text={{ request|current_url|urlencode:'' }}"
+                       {% else %}
+                       href="https://twitter.com/intent/tweet?text={{ request|current_url|add:'?id='|add:request.user.account.page_id|urlencode:'' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/twitter_img.png' %}" alt=""><span>Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" rel="noopener"
+                       {% if not request.user.is_authenticated %}
+                       href="https://www.facebook.com/share.php?u={{ request|current_url|urlencode:'' }}"
+                       {% else %}
+                       href="https://www.facebook.com/share.php?u={{ request|current_url|add:'?id='|add:request.user.account.page_id|urlencode:'' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/facebook_img.png' %}" alt="">
+                        <span>Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="copy"
+                       {% if not request.user.is_authenticated %}
+                       data-clipboard-text="{{ request|current_url|add:'?openExternalBrowser=1' }}"
+                       {% else %}
+                       data-clipboard-text="{{ request|current_url|add:'?id='|add:request.user.account.page_id|add:'&openExternalBrowser=1' }}"
+                       {% endif %}
+                    >
+                        <img src="{% static '/images/url_img.png' %}" alt=""><span>URLをコピー</span>
+                    </a>
+                </li>
+            </ul>
         </div>
       </div>
     </div>

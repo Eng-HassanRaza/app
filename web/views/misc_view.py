@@ -5,13 +5,13 @@ from django.views.decorators.http import require_GET
 @require_GET
 def ask(request):
     """お問い合わせ"""
-    return render(request, 'ask.html')
+    return render(request, 'new_ask.html')
 
 
 @require_GET
 def company(request):
     """運営会社"""
-    return render(request, 'company.html')
+    return render(request, 'new_company.html')
 
 
 @require_GET
@@ -23,7 +23,7 @@ def manage(request):
 @require_GET
 def tos(request):
     """利用規約"""
-    return render(request, 'kiyaku.html')
+    return render(request, 'new_kiyaku.html')
 
 
 @require_GET
