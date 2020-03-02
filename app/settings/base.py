@@ -30,7 +30,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # ** Each　Settings
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "leanjapan.xsrv.jp", "leanjapan.jp", "test.leanjapan.jp", "lea-n.com",
-                 "www.lea-n.com"]
+                 "www.lea-n.com","dev.lea-n.com"]
 
 # Application definition
 
