@@ -29,7 +29,7 @@ def profile(request):
         form = AccountForm(data=request.POST, files=request.FILES, instance=account)
         if form.is_valid():
             form.save()
-            return redirect('/profile/{}/'.format(account.id))
+            return redirect('/profile/{}/'.format(request.user.id))
         else:
             logger.warning("Error: {}".format(form.errors))
     else:
@@ -53,7 +53,7 @@ def get_paginator(query_set):
 @require_GET
 def profile_long(request, account_id):
     """プロフィールページ"""
-    account = get_object_or_404(Account, pk=account_id)
+    account = get_object_or_404(Account, user=account_id)
 
     if not account.user.is_active:
         raise Http404

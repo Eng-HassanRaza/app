@@ -55,7 +55,7 @@ def thanks(request):
     try:
         account = request.user.account
         if account.display_name == "" or account.display_name is None:
-            return render(request, 'thanks.html')
+            return redirect('/profile/edit/')
         else:
             return redirect("/")
     except ObjectDoesNotExist:

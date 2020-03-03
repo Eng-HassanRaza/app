@@ -19,43 +19,7 @@ def index(request):
     """トップ画面"""
 
     if request.user.is_authenticated and not request.user.is_staff:
-        account = get_object_or_404(Account, pk=request.user.id)
-
-        if not account.user.is_active:
-            raise Http404
-
-        if account.is_private:
-            return render(request, 'new_profile_long.html', {
-                "account": account
-            })
-
-        # instagram
-        ig_paginator = get_paginator(
-            InstagramInfo.objects.filter(user=account.user).order_by("-publish_at"))
-        instagram_list = ig_paginator.get_page(1)
-
-        # youtube
-        yt_paginator = get_paginator(
-            YoutubeInfo.objects.filter(user=account.user).order_by("-publish_at"))
-        youtube_list = yt_paginator.get_page(1)
-
-        # twitter
-        twitter_token = account.twitter_token
-        twitter_id = twitter_token.twitter_name if twitter_token is not None else None
-
-        logger.info("instagram_list={}, youtube_list={}".format(instagram_list.has_next(), youtube_list.has_next()))
-
-        params = {
-            "account": account,
-            "instagram_list": instagram_list,
-            "youtube_list": youtube_list,
-            "twitter_id": twitter_id,
-        }
-        if account.ssp_landscape is not None:
-            params["SSP_TAG_LAND"] = account.ssp_landscape
-        if account.ssp_post is not None:
-            params["SSP_TAG_POST"] = account.ssp_post
-        return render(request, 'new_profile_long.html', params)
+        return redirect('/profile/'+str(request.user.id))
     user_count = Account.objects.filter(user__is_active=True).order_by("-id").count()
 
     query = Account.objects.filter(user__is_active=True, is_private=False).exclude(display_name="").order_by("-id")
