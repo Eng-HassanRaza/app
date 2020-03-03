@@ -26,7 +26,7 @@ STATIC_URL = '/new_static/'
 DATABASES = {
  'default': {
  # 'ENGINE': 'django.db.backends.mysql',
- 'ENGINE': 'mysql.connector.django',
+ 'ENGINE': "mysql.connector.django",
  'NAME': "leanjapan_main", # 接続するDB名
  'USER': "eanjapan_miuser", # 接続ユーザ
  'PASSWORD': "ZiV7rekJ3uz", # パスワード
