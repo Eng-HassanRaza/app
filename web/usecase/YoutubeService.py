@@ -45,6 +45,8 @@ class YoutubeService:
 
         account = Account.objects.filter(user=user).first()
         if account is not None:
+            if not account.is_private:
+                account.is_private = False
             account.youtube_token = token
             account.save()
 

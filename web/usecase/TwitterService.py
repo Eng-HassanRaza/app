@@ -42,6 +42,8 @@ class TwitterService:
 
         account = Account.objects.filter(user=user).first()
         if account is not None:
+            if not account.is_private:
+                account.is_private = False
             account.twitter_token = token
             account.save()
 
