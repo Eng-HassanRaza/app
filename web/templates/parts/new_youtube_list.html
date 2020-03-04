@@ -33,6 +33,10 @@
   <link rel="stylesheet" href="{% static 'new_static/css/lightbox.min.css' %}">
   <link rel="stylesheet" href="{% static 'new_static/css/slick.css' %}">
   <link rel="stylesheet" href="{% static 'new_static/css/style.css' %}">
+
+     <script src="{% static 'new_static/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'new_static/assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/infinite.min.js"></script>
 </head>
 
 <body class="bg_grey">
@@ -85,14 +89,23 @@
         </div>
       </section>
 <div class="box_video">
-      <ul class="insta_contents youtube">
+      <ul class="insta_contents youtube infinite-container">
          {% block socialcontents %}
-                 {% if instagram_list %}
+                 {% if youtube_list %}
                         {% include "parts/youtube_list.html" with youtube_list=youtube_list %}
                 {% endif %}
                     {{ SSP_TAG_LAND|safe }}
             {% endblock socialcontents %}
     </ul>
+{% if youtube_list.has_next %}
+    <a class="infinite-more-link" href="?page={{ youtube_list.next_page_number }}">More</a>
+{% endif %}
+
+<script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0]
+    });
+</script>
 </div>
   </main>
 

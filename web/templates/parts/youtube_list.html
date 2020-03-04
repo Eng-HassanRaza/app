@@ -1,15 +1,16 @@
 {% load custom_filters %}
 {% if youtube_list %}
+
 {% with rand=youtube_list|random_int %}
     {% for yt_item in youtube_list %}
         {% if forloop.counter0 == rand %}
-            <li>
-        <div class="box_video_item">
-            {{ SSP_TAG_POST|safe }}
-        </div>
+            <li class="infinite-item">
+                <div class="box_video_item">
+                    {{ SSP_TAG_POST|safe }}
+                </div>
             </li>
         {% endif %}
-        <li>
+        <li class="infinite-item">
         <a href="{{ yt_item.url }}" class="box_video_item" data-id="{{ yt_item.id }}"
            data-has-next="{{ youtube_list.has_next }}">
                 <div class="video">
@@ -28,3 +29,13 @@
     {% endfor %}
 {% endwith %}
 {% endif %}
+
+{% if youtube_list.has_next %}
+    <a class="infinite-more-link" href="?page={{ youtube_list.next_page_number }}">More</a>
+{% endif %}
+
+<script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0]
+    });
+</script>

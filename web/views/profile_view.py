@@ -1,6 +1,6 @@
 import logging
 
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_GET
@@ -106,26 +106,20 @@ def instagram_list(request, account_id):
         })
 
     # instagram
-    ig_paginator = get_paginator(
-        InstagramInfo.objects.filter(user=account.user).order_by("-publish_at"))
-    instagram_list = ig_paginator.get_page(1)
 
-    # youtube
-    yt_paginator = get_paginator(
-        YoutubeInfo.objects.filter(user=account.user).order_by("-publish_at"))
-    youtube_list = yt_paginator.get_page(1)
-
-    # twitter
-    twitter_token = account.twitter_token
-    twitter_id = twitter_token.twitter_name if twitter_token is not None else None
-
-    # logger.info("instagram_list={}, youtube_list={}".format(instagram_list.has_next(), youtube_list.has_next()))
-
+    query = InstagramInfo.objects.filter(user=account.user).order_by("-publish_at")
+    page = request.GET.get('page', 1)
+    paginator = Paginator(query, 6)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+    # instagram_list = ig_paginator.get_page(1)
     params = {
         "account": account,
-        "instagram_list": instagram_list,
-        "youtube_list": youtube_list,
-        "twitter_id": twitter_id,
+        "instagram_list": numbers,
     }
     if account.ssp_landscape is not None:
         params["SSP_TAG_LAND"] = account.ssp_landscape
@@ -188,27 +182,21 @@ def youtube_list(request, account_id):
             "account": account
         })
 
-    # instagram
-    ig_paginator = get_paginator(
-        InstagramInfo.objects.filter(user=account.user).order_by("-publish_at"))
-    instagram_list = ig_paginator.get_page(1)
-
     # youtube
-    yt_paginator = get_paginator(
-        YoutubeInfo.objects.filter(user=account.user).order_by("-publish_at"))
-    youtube_list = yt_paginator.get_page(1)
+    query = YoutubeInfo.objects.filter(user=account.user).order_by("-publish_at")
 
-    # twitter
-    twitter_token = account.twitter_token
-    twitter_id = twitter_token.twitter_name if twitter_token is not None else None
-
-    # logger.info("instagram_list={}, youtube_list={}".format(instagram_list.has_next(), youtube_list.has_next()))
+    page = request.GET.get('page', 1)
+    paginator = Paginator(query, 6)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
 
     params = {
         "account": account,
-        "instagram_list": instagram_list,
-        "youtube_list": youtube_list,
-        "twitter_id": twitter_id,
+        "youtube_list": numbers,
     }
     if account.ssp_landscape is not None:
         params["SSP_TAG_LAND"] = account.ssp_landscape
