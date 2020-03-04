@@ -7,7 +7,7 @@ from django.views.decorators.http import require_GET
 
 from web.forms import AccountForm
 from web.models import Account, InstagramInfo, YoutubeInfo
-
+import requests
 logger = logging.getLogger("main")
 
 
@@ -125,6 +125,12 @@ def instagram_list(request, account_id):
         params["SSP_TAG_LAND"] = account.ssp_landscape
     if account.ssp_post is not None:
         params["SSP_TAG_POST"] = account.ssp_post
+    try:
+        r =requests.get(params['instagram_list'][0].url + '?__a=1')
+        instgram_user_id = r.json()['graphql']['shortcode_media']['owner']['username']
+    except:
+        instgram_user_id = None
+    params['instgram_user_id'] = instgram_user_id
     return render(request, 'parts/new_instagram_list.html', params)
 
 
@@ -141,15 +147,6 @@ def twitter_list(request, account_id):
             "account": account
         })
 
-    # instagram
-    ig_paginator = get_paginator(
-        InstagramInfo.objects.filter(user=account.user).order_by("-publish_at"))
-    instagram_list = ig_paginator.get_page(1)
-
-    # youtube
-    yt_paginator = get_paginator(
-        YoutubeInfo.objects.filter(user=account.user).order_by("-publish_at"))
-    youtube_list = yt_paginator.get_page(1)
 
     # twitter
     twitter_token = account.twitter_token
@@ -159,8 +156,6 @@ def twitter_list(request, account_id):
 
     params = {
         "account": account,
-        "instagram_list": instagram_list,
-        "youtube_list": youtube_list,
         "twitter_id": twitter_id,
     }
     if account.ssp_landscape is not None:
@@ -202,6 +197,12 @@ def youtube_list(request, account_id):
         params["SSP_TAG_LAND"] = account.ssp_landscape
     if account.ssp_post is not None:
         params["SSP_TAG_POST"] = account.ssp_post
+    try:
+        youtube_channel_id = params['youtube_list'][0].chanel_id
+    except:
+        youtube_channel_id = None
+
+    params['youtube_channel'] = youtube_channel_id
     return render(request, 'parts/new_youtube_list.html', params)
 
 
