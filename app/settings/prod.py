@@ -1,6 +1,6 @@
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
