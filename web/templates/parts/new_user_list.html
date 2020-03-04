@@ -1,6 +1,6 @@
 {% load static %}
 {% for account in users %}
-    <article class="thumb">
+    <article class="thumb infinite-item" >
         <a href="/profile/{{ account.id }}" class="image">
              {% if account.profile_image %}
                 <img src="/media/{{ account.profile_image }}" alt="">

@@ -34,6 +34,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="{% static 'new_static/assets/css/main.css' %}" />
 	<noscript><link rel="stylesheet" href="{% static 'new_static/assets/css/noscript.css' %}" /></noscript>
+
+    <script src="{% static 'new_static/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'new_static/assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/infinite.min.js"></script>
 </head>
 <body class="is-preload">
     	<!-- Wrapper -->
@@ -50,65 +54,31 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		</header>
 
 		<!-- Main -->
-		<div id="main">
-        {% include "parts/new_user_list.html" with users=first_users hasNext=hasNext %}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/02.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/02.jpg' %}" alt="" /></a>#}
-{#				<h2>Nisl adipiscing</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/03.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/03.jpg'%}" alt="" /></a>#}
-{#				<h2>Tempus aliquam veroeros</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/04.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/04.jpg' %}" alt="" /></a>#}
-{#				<h2>Aliquam ipsum sed dolore</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/05.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/05.jpg' %}" alt="" /></a>#}
-{#				<h2>Cursis aliquam nisl</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/06.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/06.jpg' %}" alt="" /></a>#}
-{#				<h2>Sed consequat phasellus</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/07.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/07.jpg' %}" alt="" /></a>#}
-{#				<h2>Mauris id tellus arcu</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/08.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/08.jpg' %}" alt="" /></a>#}
-{#				<h2>Nunc vehicula id nulla</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/09.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/09.jpg' %}" alt="" /></a>#}
-{#				<h2>Neque et faucibus viverra</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/10.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/10.jpg' %}" alt="" /></a>#}
-{#				<h2>Mattis ante fermentum</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/11.jpg' %}" class="image"><img src="{% static 'new_static/images/thumbs/11.jpg' %}" alt="" /></a>#}
-{#				<h2>Sed ac elementum arcu</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
-{#			<article class="thumb">#}
-{#				<a href="{% static 'new_static/images/fulls/12.jpg'%}" class="image"><img src="{% static 'new_static/images/thumbs/12.jpg' %}" alt="" /></a>#}
-{#				<h2>Vehicula id nulla dignissim</h2>#}
-{#				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>#}
-{#			</article>#}
+		<div id="main" class="infinite-container">
+            {% for account in first_users %}
+                <article class="thumb infinite-item" >
+                    <a href="/profile/{{ account.id }}" class="image">
+                         {% if account.profile_image %}
+                            <img src="/media/{{ account.profile_image }}" alt="">
+                        {% else %}
+                            <img src="{% static '/images/user.png' %}" alt="">
+                        {% endif %}
+                    </a>
+                    <h2>{{ account.display_name }}</h2>
+                    <p> </p>
+                </article>
+            {% endfor %}
 		</div>
 
+        {% if first_users.has_next %}
+            <a class="infinite-more-link" href="?page={{ first_users.next_page_number }}">More</a>
+        {% endif %}
+
+          <script>
+            var infinite = new Waypoint.Infinite({
+              element: $('.infinite-container')[0]
+            });
+          </script>
 		<!-- Footer -->
 		<footer id="footer" class="panel">
 			<div class="inner split">
@@ -161,7 +131,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
     </div>
 <!-- Scripts -->
-<script src="{% static 'new_static/assets/js/jquery.min.js' %}"></script>
+
+
 <script src="{% static 'new_static/assets/js/browser.min.js' %}"></script>
 <script src="{% static 'new_static/assets/js/breakpoints.min.js' %}"></script>
 <script src="{% static 'new_static/assets/js/util.js'%}"></script>

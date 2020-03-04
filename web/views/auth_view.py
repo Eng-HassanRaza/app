@@ -61,12 +61,12 @@ def thanks(request):
     except ObjectDoesNotExist:
         parent_id = request.session['parent'] if "parent" in request.session else None
 
-        account = Account(user=request.user, parent_id=parent_id)
+        account = Account(user=request.user, parent_id=parent_id,height=0)
         account.save()
         if parent_id is not None:
             del request.session['parent']
 
-        return render(request, 'thanks.html')
+        return render(request, 'new_thanks.html')
 
 
 @require_GET

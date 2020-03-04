@@ -29,7 +29,7 @@ def profile(request):
         form = AccountForm(data=request.POST, files=request.FILES, instance=account)
         if form.is_valid():
             form.save()
-            return redirect('/profile/{}/'.format(request.user.id))
+            return redirect('/profile/{}/'.format(request.user.account.id))
         else:
             logger.warning("Error: {}".format(form.errors))
     else:
