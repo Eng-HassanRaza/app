@@ -24,7 +24,7 @@ def index(request):
 
     query = Account.objects.filter(user__is_active=True, is_private=False).exclude(display_name="").order_by("-id")
     page = request.GET.get('page', 1)
-    paginator=Paginator(query, 6)
+    paginator=Paginator(query, 9)
     try:
         numbers = paginator.page(page)
     except PageNotAnInteger:
