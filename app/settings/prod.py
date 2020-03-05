@@ -4,8 +4,8 @@ DEBUG = False
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = '/new_static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "new_static")
 # DATABASES = {
 #  'default': {
 #  # 'ENGINE': 'django.db.backends.mysql',
