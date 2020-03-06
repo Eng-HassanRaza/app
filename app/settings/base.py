@@ -146,7 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '/web/static'),
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
