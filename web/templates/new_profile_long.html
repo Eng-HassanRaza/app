@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="{% static 'new_static/css/lightbox.min.css' %}">
     <link rel="stylesheet" href="{% static 'new_static/css/slick.css' %}">
     <link rel="stylesheet" href="{% static 'new_static/css/style.css' %}">
+        <script src="{% static 'new_static/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/clipboard.min.js' %}"></script>
+    <script src="{% static 'js/clipboard-polyfill.js' %}"></script>
     <style>
         .profile_cover .profile_cover_txt ul.profile_cover_select{
             display:block;
@@ -202,7 +205,22 @@
     </div>
 
     <!-- ===スクリプト系= -->
-    <script src="{% static 'new_static/js/jquery-3.3.1.min.js' %}"></script>
+    <script>
+        var clipboard = new ClipboardJS('.copy');
+
+clipboard.on('success', function(e) {
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
+});
+
+clipboard.on('error', function(e) {
+    console.error('Action:', e.action);
+    console.error('Trigger:', e.trigger);
+});
+    </script>
     <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
     <script src="{% static 'new_static/js/slick.min.js' %}"></script>
     <script src="{% static 'new_static/js/lightbox-video.js' %}"></script>

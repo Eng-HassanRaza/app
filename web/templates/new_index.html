@@ -60,6 +60,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <a href="/profile/{{ account.id }}" class="image">
                          {% if account.profile_image %}
                             <img src="/media/{{ account.profile_image }}" alt="">
+                         {% elif account.profile_image1 %}
+                             <img src="/media/{{ account.profile_image1 }}" alt="">
+                         {% elif account.profile_image2 %}
+                             <img src="/media/{{ account.profile_image2 }}" alt="">
+                         {% elif account.profile_image3 %}
+                             <img src="/media/{{ account.profile_image3 }}" alt="">
                         {% else %}
                             <img src="{% static '/images/user.png' %}" alt="">
                         {% endif %}

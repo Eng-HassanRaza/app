@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LEAN!にようこそ│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
+    <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LEAN!にようこそ" />
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+    <meta property="og:image" content="https://leanjapan.jp/i/images/ogp.png">
+    <meta property="og:image:alt" content="LEAN!ogp">
+    <meta property="og:url" content="https://leanjapan.jp/i/signup.html" />
+    <meta property="og:site_name" content="LEAN!" />
+    <!-- facebook -->
+    <meta property="article:author" content="https://www.facebook.com/leanjapan/">
+    <meta property="fb:app_id" content="680771545664378" />
+    <meta property="fb:admins" content="680771545664378" />
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@japan_lean" />
+    <meta name="twitter:url" content="https://leanjapan.jp/i/signup.html" />
+    <meta name="twitter:title" content="LEAN!にようこそ"/>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+    <meta name="twitter:image:src" content="https://leanjapan.jp/i/images/ogp.png" />
+    <meta name="twitter:site" content="LEAN!" />
+    <link rel="stylesheet" href="{% static 'new_static/css/site_structure_about.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/site_content_about.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/style_about.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'new_static/css/slick.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'new_static/css/slick-theme.css' %}" />
+
+        <script src="{% static 'new_static/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'new_static/js/slick.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'new_static/js/func_slick.js' %}"></script>
+<style>
+.slider{
+    margin: 60px auto;
+    width: 80%;
+}
+.slider img{
+    height: auto;
+    width: 100%;
+}
+/*slick setting*/
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
+}
+</style>
+</head>
+
+<body class="listtype">
+<div class="maxwidth">
+    <div class="header__top">
+        <div class="container_about">
+
+            <!--<ul class="tabs">
+              <li class="tab__link" data-tab="tab-1"><a href="listofusers_menuclose.html">PICK UP</a></li>
+              <li class="tab__link current" data-tab="tab-2">新着</li>
+              <li class="tab__link" data-tab="tab-3"><a href="listofusers_all.html">ALL</a></li>
+            </ul>-->
+            </div>
+          </div>
+          <div class="content">
+            <div class="container_about laenpro-banner">
+<div class="box"></div>
+            <div class="number-members">
+                <div class="number-members-wrapp">
+                  <div class="text">
+                    LEAN!にようこそ
+                  </div>
+                </div>
+              </div>
+                <img src="{% static 'new_static/images/slider01.jpg' %}" alt="">
+              </div>
+              <p>&nbsp;</p>
+              <ul class="container_about">
+              <div class="text__about">
+                <p style="text-align:center;">あなたのInstagram、Youtube、Twitter等を連携表示したオフィシャルプロフィールページを自動生成</p>
+              </div>
+              <div class="heading">
+                <p>あなたのオフィシャルページが<br >できあがり。</p>
+                <p>&nbsp;</p>
+              </div>
+              <div class="text__top">
+                利用中ユーザー
+              </div>
+<!--スライダーの記述-->
+<ul class="slider"> <!--classは任意の名前でOK-->
+    {% for account in active_users %}
+        <li style="width: 144px; height: 144px;">
+        <a href="/profile/{{ account.id }}" class="image">
+                         {% if account.profile_image %}
+                            <img src="/media/{{ account.profile_image }}" style="max-width: 100%; height: 100%;" alt="">
+                         {% elif account.profile_image1 %}
+                             <img src="/media/{{ account.profile_image1 }}" style="max-width: 100%; height: 100%;" alt="">
+                         {% elif account.profile_image2 %}
+                             <img src="/media/{{ account.profile_image2 }}" style="max-width: 100%; height: 100%;" alt="">
+                         {% elif account.profile_image3 %}
+                             <img src="/media/{{ account.profile_image3 }}" style="max-width: 100%; height: 100%;" alt="">
+                        {% else %}
+                            <img src="{% static '/images/user.png' %}" style="max-width: 100%; height: 100%;" alt="">
+                        {% endif %}
+                    </a>
+        </li>
+{#    <li><a href="#"><img src="{% static 'new_static/images/slide_01.png' %}" alt="image01"></a></li>#}
+{#    <li><a href="#"><img src="{% static 'new_static/images/slide_02.png' %}" alt="image02"></a></li>#}
+{#    <li><a href="#"><img src="{% static 'new_static/images/slide_03.png' %}" alt="image03"></a></li>#}
+{#    <li><a href="#"><img src="{% static 'new_static/images/slide_04.png' %}" alt="image04"></a></li>#}
+{#    <li><a href="#"><img src="{% static 'new_static/images/slide_05.png' %}" alt="image05"></a></li>#}
+    {% endfor %}
+</ul>
+<!--スライダーの記述ここまで-->
+
+              <div class="text__about">
+                <p style="text-align:center;">特別な技術や知識は一切必要ありません。フォロワー増加、ブランド向上の仕掛け満載。</p>
+              </div>
+
+              <div class="container_about">
+              <div class="heading">
+　　　　　　　　　<p>この他にも、以下の機能を<br >完全無料で提供</p>
+              </div>
+                    <div class="centerimg">
+                    　　<div><img src="{% static 'new_static/images/about_icon.png' %}" alt="広告収入" ><p>あなたも今すぐプロのインフルエンサーに。</p></div>
+                    <!--
+                    　　<div><img src="images/about_icon2.png" alt="イベント"><p>募集イベントの登録機能・参加機能も無料。</p></div>
+                  -->
+                    　　<div><img src="{% static 'new_static/images/about_icon3.png' %}" alt="お仕事依頼"><p>あなたにしかできないお仕事を毎日依頼中。</p></div>
+                    <!--
+                    　　<div><img src="images/about_icon4.png" alt="スクール機能"><p>有名インフルエンサーも登場。講義も無料。</p></div>
+                  </div>-->
+                </div>
+              <div class="text__top abouttext">
+                さらにあなたのページにアクセスを送り込む強烈な支援機能も準備中。ご利用は無料です。
+              </div>
+              </div>
+                <p>&nbsp;</p>
+              <div class="share__login2">
+                  <a class="btn btn__leanpro2" href="{% url 'web:signup' %}"><span>今すぐ無料登録</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+        <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
+        <script src="{% static 'new_static/js/slick.min.js' %}"></script>
+        <script src="{% static 'new_static/js/lightbox-video.js' %}"></script>
+        <script src="{% static 'new_static/js/index.js' %}"></script>
+
+</body>
+
+</html>

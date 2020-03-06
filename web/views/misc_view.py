@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
+from web.models import Account
 
 
 @require_GET
@@ -17,7 +18,7 @@ def company(request):
 @require_GET
 def manage(request):
     """報酬管理"""
-    return render(request, 'manage.html')
+    return render(request, 'new_manage.html')
 
 
 @require_GET
@@ -35,7 +36,8 @@ def policy(request):
 @require_GET
 def about(request):
     """ABOUT"""
-    return render(request, 'about.html')
+    all_users = Account.objects.filter(user__is_active=True, is_private=False).exclude(display_name="").order_by("-id")
+    return render(request, 'new_about.html',context={'active_users':all_users})
 def about_verification(request):
     """ABOUT VERIFICATION"""
     context = {'name':request.POST['ab_name'],'email':request.POST['ab_email'],'desc':request.POST['ab_desc']}

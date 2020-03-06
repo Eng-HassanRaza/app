@@ -174,14 +174,16 @@ input::-moz-focus-outer {
                 <div class="article__box2">
                 <div class="article__detail article__box__info2">
                 <div class="edit">
-                <p class="editname">LEAN！を紹介するとポイントがもらえます。</p>
-                <p class="textdes">※ポイントについては、<a href="about.html#reward">こちら</a>のページの【報酬について】をご確認ください</p>
-                <span style="color:#234d6a;font-weight:bold;">インフルエンサー紹介URL</span>
-                <p><input type="text" name="twitter_comment" placeholder="https://leanjapan.jp/id=001" size="36" maxlength="160" readonly="readonly"></p>
-                <div class="btn-edit3">
-                    <a href="#">紹介URLをコピーする</a>
-                </div>
-                </div>
+                            <p class="editname">LEAN！を紹介するとポイントがもらえます。</p>
+                            <p class="textdes">※ポイントについては、<a href="/about#reward">こちら</a>のページの【報酬について】をご確認ください</p>
+                            <span style="color:#234d6a;font-weight:bold;">インフルエンサー紹介URL</span>
+                            <p><input type="text"
+                                      placeholder="https://{{ request.get_host }}/invite/{{ account.page_id }}?openExternalBrowser=1"
+                                      size="36" maxlength="160" readonly="readonly"></p>
+                            <div class="btn-edit3">
+                                <a class="copy" data-clipboard-text="https://{{ request.get_host }}/invite/{{ account.page_id }}?openExternalBrowser=1">紹介URLをコピーする</a>　　　　　　　　
+                            </div>
+                        </div>
 　　　　　　　　　 </div>
 　　　　　　　　　 </div>
 　　　　　　　　　 </div>
