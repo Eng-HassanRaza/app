@@ -15,7 +15,8 @@ Including another URLconf
 """
 from allauth.account.views import LogoutView
 from django.urls import path
-
+from django.conf.urls.static import static
+from django.conf import settings
 from web.views import index_view, misc_view, auth_view, profile_view, account_view, auth_instagram_view, \
     auth_twitter_view, auth_youtube_view
 
@@ -70,4 +71,5 @@ urlpatterns = [
     path('auth/yt/login/', auth_youtube_view.login, name="yt_login"),
     path('auth/yt/logout/', auth_youtube_view.logout, name="yt_logout"),
     path('auth/yt/login/callback/', auth_youtube_view.callback, name="yt_login_callback"),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,
+document_root=settings.STATIC_ROOT)
