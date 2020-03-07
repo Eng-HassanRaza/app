@@ -18,6 +18,7 @@ $(document).ready(function() {
         $('#modal_header').append('https://lea-n.com/');
         $('#modal_content').append(e.text);
         $('#modal_footer').append('OK');
+        $(".share").removeClass("open");
         $('#clipboard_modal').modal();
         e.clearSelection();
     });

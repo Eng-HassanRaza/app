@@ -33,12 +33,12 @@
     <link rel="stylesheet" href="{% static 'new_static/css/lightbox.min.css' %}">
     <link rel="stylesheet" href="{% static 'new_static/css/slick.css' %}">
     <link rel="stylesheet" href="{% static 'new_static/css/style.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     <script src="{% static 'new_static/js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/clipboard.min.js' %}"></script>
-    <script src="{% static 'js/clipboard-polyfill.js' %}"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'new_static/js/clipboard.min.js' %}"></script>
+    <script src="{% static 'new_static/js/clipboard-polyfill.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <style>
         .profile_cover .profile_cover_txt ul.profile_cover_select{
             display:block;
@@ -211,6 +211,7 @@
             <hr class="profile_cover_modal_close">
         </div>
     </div>
+    <!-- Modal -->
     <div id="clipboard_modal" class="modal">
         <div id="popup1" class="overlay">
             <div class="popup" style="text-align: center">
@@ -223,7 +224,7 @@
             </div>
         </div>
     </div>
-    <!-- ===スクリプト系= -->
+   <!-- ===スクリプト系= -->
 
     <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
     <script src="{% static 'new_static/js/slick.min.js' %}"></script>
