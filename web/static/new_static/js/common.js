@@ -15,8 +15,11 @@ $(document).ready(function() {
 
     clipboard.on('success', function(e) {
         // alert("「" + e.text + "」をコピーしました")
+         $("#modal_header").empty();
         $('#modal_header').append('https://lea-n.com/');
+         $("#modal_content").empty();
         $('#modal_content').append(e.text);
+         $("#modal_footer").empty();
         $('#modal_footer').append('OK');
         $(".share").removeClass("open");
         $('#clipboard_modal').modal();
