@@ -57,19 +57,28 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		<div id="main" class="infinite-container">
             {% for account in first_users %}
                 <article class="thumb infinite-item" >
-                    <a href="/profile/{{ account.id }}" class="image">
-                         {% if account.profile_image %}
-                            <img src="/media/{{ account.profile_image }}" alt="">
-                         {% elif account.profile_image1 %}
-                             <img src="/media/{{ account.profile_image1 }}" alt="">
-                         {% elif account.profile_image2 %}
-                             <img src="/media/{{ account.profile_image2 }}" alt="">
-                         {% elif account.profile_image3 %}
-                             <img src="/media/{{ account.profile_image3 }}" alt="">
-                        {% else %}
+                    {% if account.profile_image %}
+                        <a href="/profile/{{ account.id }}" class="image" style="background-image: url('/media/{{ account.profile_image }}');">
+                            <img src="/media/{{ account.profile_image }}" alt="" style="display:none">
+                        </a>
+                    {% elif account.profile_image1 %}
+                        <a href="/profile/{{ account.id }}" class="image" style="background-image: url('/media/{{ account.profile_image1 }}');">
+                            <img src="/media/{{ account.profile_image1 }}" alt="" style="display:none">
+                        </a>
+                    {% elif account.profile_image2 %}
+                        <a href="/profile/{{ account.id }}" class="image" style="background-image: url('/media/{{ account.profile_image2 }}');">
+                            <img src="/media/{{ account.profile_image2 }}" alt="" style="display:none">
+                        </a>
+                    {% elif account.profile_image3 %}
+                        <a href="/profile/{{ account.id }}" class="image" style="background-image: url('/media/{{ account.profile_image3 }}');">
+                            <img src="/media/{{ account.profile_image3 }}" alt="" style="display:none">
+                        </a>
+                    {% else %}
+                        <a href="/profile/{{ account.id }}" class="image" style="background-image: url('{% static '/images/user.png' %}');">
                             <img src="{% static '/images/user.png' %}" alt="">
-                        {% endif %}
-                    </a>
+                        </a>
+                    {% endif %}
+
                     <h2>{{ account.display_name }}</h2>
                     <p> </p>
                 </article>

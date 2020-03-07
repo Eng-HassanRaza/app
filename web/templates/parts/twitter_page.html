@@ -61,15 +61,15 @@
       <section class="insta_head">
         <div class="insta_head_icon">
                     {% if account.profile_image %}
-                        <a href="/"> <img src="/media/{{ account.profile_image }}" alt=""></a>
+                        <a href="/profile/{{ account.id }}/"> <img src="/media/{{ account.profile_image }}" alt=""></a>
                    {% elif account.profile_image1 %}
-                        <a href="/"> <img src="/media/{{ form.profile_image1 }}" alt=""></a>
+                        <a href="/profile/{{ account.id }}/"> <img src="/media/{{ form.profile_image1 }}" alt=""></a>
                    {% elif account.profile_image2 %}
-                        <a href="/"> <img src="/media/{{ form.profile_image2 }}" alt=""></a>
+                        <a href="/profile/{{ account.id }}/"> <img src="/media/{{ form.profile_image2 }}" alt=""></a>
                    {% elif account.profile_image3 %}
-                        <a href="/"> <img src="/media/{{ form.profile_image3 }}" alt=""></a>
+                        <a href="/profile/{{ account.id }}/"> <img src="/media/{{ form.profile_image3 }}" alt=""></a>
                    {% else %}
-                        <a href="/"><img src="{% static '/images/user.png' %}" alt=""></a>
+                        <a href="/profile/{{ account.id }}/"><img src="{% static '/images/user.png' %}" alt=""></a>
                    {% endif %}
                 </div>
         <div class="insta_head_txt twitter">

@@ -9,17 +9,17 @@
         {% endif %}
         {% if ig_item.type == 'CAROUSEL_ALBUM' %}
             <li class="insta_clip_multiple infinite-item">
-                <a class="ic1"><img src="{{ ig_item.thumbnail }}"></a>
+                <a class="ic1" href="{{ ig_item.url }}" target="_blank"><img src="{{ ig_item.thumbnail }}"></a>
 {#                <a class="ic1"><img src="{% static '/images/ic_clipboard.png' %}"></a>#}
             </li>
         {% elif ig_item.type == 'VIDEO' %}
             <li class="instaclip__movie infinite-item">
-                <a class="ic2"><img src="{{ ig_item.thumbnail }}"></a>
+                <a class="ic2" href="{{ ig_item.url }}" target="_blank"><img src="{{ ig_item.thumbnail }}"></a>
 {#                <a class="ic2"><img src="{% static '/images/ic_camera.png' %}"></a>#}
             </li>
         {% else %}
              <li class="infinite-item">
-                <a href="{{ ig_item.url }}"><img src="{{ ig_item.thumbnail }}" alt=""></a>
+                <a href="{{ ig_item.url }}" target="_blank"><img src="{{ ig_item.thumbnail }}" alt=""></a>
             </li>
         {% endif %}
 

@@ -39,6 +39,8 @@
     <script type="text/javascript" src="{% static 'new_static/js/slick.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'new_static/js/func_slick.js' %}"></script>
     <script type="text/javascript" src="{% static 'new_static/js/profile_edit.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <style>
         *, *:before, *:after {
   box-sizing: border-box;
@@ -383,15 +385,30 @@ input::-moz-focus-outer {
 
 </div>
 </form>
+<div id="clipboard_modal" class="modal">
+    <div id="popup1" class="overlay">
+        <div class="popup" style="text-align: center">
+            <h2 id="modal_header"></h2>
+            </br>
+            <div class="body_content">
+                <p id="modal_content"></p>
+            </div>
+            <h3 id="modal_footer"></h3>
+        </div>
+    </div>
+</div>
+
         <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
         <script src="{% static 'new_static/js/slick.min.js' %}"></script>
         <script src="{% static 'new_static/js/lightbox-video.js' %}"></script>
         <script src="{% static 'new_static/js/index.js' %}"></script>
+{#        <script src="{% static 'new_static/js/index.js' %}"></script>#}
 
-        <script src="{% static '/js/clipboard-polyfill.js' %}"></script>
-        <script src="{% static '/js/clipboard.min.js' %}"></script>
-        <script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
-        <script src="{% static '/js/profile_edit.js' %}{{ RES_VER }}"></script>
+
+        <script src="{% static 'new_static/js/clipboard-polyfill.js' %}"></script>
+        <script src="{% static 'new_static/js/clipboard.min.js' %}"></script>
+        <script src="{% static 'new_static/js/common.js' %}{{ RES_VER }}"></script>
+        <script src="{% static 'new_static/js/profile_edit.js' %}{{ RES_VER }}"></script>
         <script>
               var rangeSlider = function(){
               var slider = $('.range-slider'),
