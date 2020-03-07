@@ -137,7 +137,7 @@
             {% else %}
             <section class="profile_details">
 
-                {% if request.user.account.instagram_token %}
+                {% if account.instagram_token %}
                 <!-- ==instagram== -->
                 <div class="profile_details_block" id="instagram">
                     <ul class="profile_details_ttl">
@@ -152,7 +152,7 @@
                     <p class="profile_details_description">{{ account.instagram_comment }}</p>
                 </div>
                 {% endif %}
-                {% if request.user.account.youtube_token %}
+                {% if account.youtube_token %}
                 <!-- ==youtube== -->
                 <div class="profile_details_block" id="youtube">
                     <ul class="profile_details_ttl">
@@ -168,7 +168,7 @@
                 </div>
 
                     {% endif %}
-                {% if request.user.account.twitter_token %}
+                {% if account.twitter_token %}
                 <!-- ==twitter== -->
                 <div class="profile_details_block" id="twitter">
                     <ul class="profile_details_ttl">
