@@ -115,20 +115,14 @@
                         {% else %}
                             <img src="{% static '/images/user.png' %}" alt="" {%if account.is_private and not user.is_authenticated %} style="filter: blur(10px)"{% endif %}>
                         {% endif %}
-                        <!-- ↓ここにスライドさせたい画像を追加↓ -->
 
-
-
-
-                        <!-- ↑ここにスライドさせたい画像を追加↑ -->
                     </ul>
-                {% if account.is_private and not user.is_authenticated %}
-                {% else %}
-
-                    <p id="pt"><font size="1pt">今月のLEAN SCORE</font>　<span>100</span></p>
-                    <p class="profile_cover_details">{{ account.profile }}</p>
-
-                    <div class="profile_cover_adsense" align="center"><img src="https://placehold.jp/600x200.png" alt=""></div>
+                    {% if account.is_private and not user.is_authenticated %}
+                    {% elif not account.instagram_token and not account.youtube_token and not account.twitter_token %}
+                    {% else %}
+                        <p id="pt"><font size="1pt">今月のLEAN SCORE</font>　<span>100</span></p>
+                        <p class="profile_cover_details">{{ account.profile }}</p>
+                        <div class="profile_cover_adsense" align="center"><img src="https://placehold.jp/600x200.png" alt=""></div>
                 {% endif %}
                 </div>
             </section>
@@ -142,66 +136,67 @@
                     <div class="center">
                       <p>このユーザーは〇〇を利⽤していません</p>
                     </div>
+                {% else %}
+                    <section class="profile_details">
 
+                        {% if account.instagram_token %}
+                        <!-- ==instagram== -->
+                        <div class="profile_details_block" id="instagram">
+                            <ul class="profile_details_ttl">
+                                <li>
+                                    <h2>Instagram</h2>
+        {#                            <p class="follower">follower<span>1.3K</span></p>#}
+                                </li>
+                                <li>
+                                    <a href="{% url 'web:profile_long_insta' account.id %}"><span>Instagramを見にいく</span></a>
+                                </li>
+                            </ul>
+                            <p class="profile_details_description">{{ account.instagram_comment }}</p>
+                        </div>
+                        {% endif %}
+                        {% if account.youtube_token %}
+                        <!-- ==youtube== -->
+                        <div class="profile_details_block" id="youtube">
+                            <ul class="profile_details_ttl">
+                                <li>
+                                    <h2>Youtube</h2>
+        {#                            <p class="follower">follower<span>13K</span></p>#}
+                                </li>
+                                <li>
+                                    <a href="{% url 'web:profile_long_youtube' account.id %}">Youtubeを見にいく</a>
+                                </li>
+                            </ul>
+                            <p class="profile_details_description">{{ account.youtube_comment }}</p>
+                        </div>
+
+                            {% endif %}
+                        {% if account.twitter_token %}
+                        <!-- ==twitter== -->
+                        <div class="profile_details_block" id="twitter">
+                            <ul class="profile_details_ttl">
+                                <li>
+                                    <h2>Twitter</h2>
+        {#                            <p class="follower">follower<span>13M</span></p>#}
+                                </li>
+                                <li>
+                                    <a href="{% url 'web:profile_long_twitter' account.id %}">Twitterを見にいく</a>
+                                </li>
+                            </ul>
+                            <p class="profile_details_description">{{ account.twitter_comment }}</p>
+                        </div>
+                            {% endif %}
+                        {% if account.wikipidia_desc %}
+                        <div class="profile_details_block" id="profile">
+                            <a href="" class="profile_icon"><img src="{% static 'new_static/images/Wikipedia.png' %}" alt=""></a>
+                            <h2>{{ account.display_name }}</h2>
+                            <p class="profile_read">出典: フリー百科事典『ウィキペディア（Wikipedia）』</p>
+                            <p class="profile_txt">{{ account.wikipidia_desc }}</p>
+                        </div>
+                            {% endif %}
+
+                    </section>
                 {% endif %}
-            <section class="profile_details">
 
-                {% if account.instagram_token %}
-                <!-- ==instagram== -->
-                <div class="profile_details_block" id="instagram">
-                    <ul class="profile_details_ttl">
-                        <li>
-                            <h2>Instagram</h2>
-{#                            <p class="follower">follower<span>1.3K</span></p>#}
-                        </li>
-                        <li>
-                            <a href="{% url 'web:profile_long_insta' account.id %}"><span>Instagramを見にいく</span></a>
-                        </li>
-                    </ul>
-                    <p class="profile_details_description">{{ account.instagram_comment }}</p>
-                </div>
-                {% endif %}
-                {% if account.youtube_token %}
-                <!-- ==youtube== -->
-                <div class="profile_details_block" id="youtube">
-                    <ul class="profile_details_ttl">
-                        <li>
-                            <h2>Youtube</h2>
-{#                            <p class="follower">follower<span>13K</span></p>#}
-                        </li>
-                        <li>
-                            <a href="{% url 'web:profile_long_youtube' account.id %}">Youtubeを見にいく</a>
-                        </li>
-                    </ul>
-                    <p class="profile_details_description">{{ account.youtube_comment }}</p>
-                </div>
-
-                    {% endif %}
-                {% if account.twitter_token %}
-                <!-- ==twitter== -->
-                <div class="profile_details_block" id="twitter">
-                    <ul class="profile_details_ttl">
-                        <li>
-                            <h2>Twitter</h2>
-{#                            <p class="follower">follower<span>13M</span></p>#}
-                        </li>
-                        <li>
-                            <a href="{% url 'web:profile_long_twitter' account.id %}">Twitterを見にいく</a>
-                        </li>
-                    </ul>
-                    <p class="profile_details_description">{{ account.twitter_comment }}</p>
-                </div>
-                    {% endif %}
-                {% if account.wikipidia_desc %}
-                <div class="profile_details_block" id="profile">
-                    <a href="" class="profile_icon"><img src="{% static 'new_static/images/Wikipedia.png' %}" alt=""></a>
-                    <h2>{{ account.display_name }}</h2>
-                    <p class="profile_read">出典: フリー百科事典『ウィキペディア（Wikipedia）』</p>
-                    <p class="profile_txt">{{ account.wikipidia_desc }}</p>
-                </div>
-                    {% endif %}
-
-            </section>
             {% endif %}
         </main>
 
