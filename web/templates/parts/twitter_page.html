@@ -84,13 +84,26 @@
           </ul>
         </div>
       </section>
-  </main>
-{% block socialcontents %}
+    {% if user.is_authenticated and not account.twitter_token %}
+
+        <div class="center">
+              <p>Twitter SNS is not linked</p>
+            </div>
+
+    {% elif not user.is_authenticated and not account.instagram_token %}
+
+            <div class="center">
+              <p>このユーザーは〇〇を利⽤していません</p>
+            </div>
+    {% else %}
+        {% block socialcontents %}
     {% if twitter_id %}
         {% include "parts/new_twitter_page.html" with twitter_id=twitter_id %}
     {% endif %}
         {{ SSP_TAG_LAND|safe }}
 {% endblock socialcontents %}
+  {% endif %}
+    </main>
   <!-- ==ページナビゲーション== -->
   {% if user.is_authenticated %}
         {% include 'login_footer.html' %}

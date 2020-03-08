@@ -88,7 +88,18 @@
           </ul>
         </div>
       </section>
-<div class="box_video">
+    {% if user.is_authenticated and not account.youtube_token %}
+
+        <div class="center">
+              <p>YouTube SNS is not linked</p>
+            </div>
+    {% elif not account.instagram_token %}
+
+                    <div class="center">
+                      <p>このユーザーは〇〇を利⽤していません</p>
+                    </div>
+            {% else %}
+                <div class="box_video">
       <ul class="insta_contents youtube infinite-container">
          {% block socialcontents %}
                  {% if youtube_list %}
@@ -107,6 +118,7 @@
     });
 </script>
 </div>
+            {% endif %}
   </main>
 
   <!-- ==ページナビゲーション== -->

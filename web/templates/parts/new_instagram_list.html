@@ -89,12 +89,25 @@
                     </ul>
                 </div>
             </section>
-            {% block socialcontents %}
-                 {% if instagram_list %}
+            {% if user.is_authenticated and not account.instagram_token %}
+
+            <div class="center">
+              <p>Instagram SNS is not linked</p>
+            </div>
+            {% elif not account.instagram_token %}
+
+                    <div class="center">
+                      <p>このユーザーは〇〇を利⽤していません</p>
+                    </div>
+            {% else %}
+                {% block socialcontents %}
+                    {% if instagram_list %}
                         {% include "parts/insta_page.html" with instagram_list=instagram_list %}
-                {% endif %}
+                    {% endif %}
                     {{ SSP_TAG_LAND|safe }}
-            {% endblock socialcontents %}
+                {% endblock socialcontents %}
+            {% endif %}
+
 
         </main>
 

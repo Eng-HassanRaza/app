@@ -48,19 +48,7 @@
             display: inline-block;
             margin-left: 5%;
         }
-         .center {
-          height: 500px;
-          position: relative;
-        }
 
-        .center p {
-          margin: 0;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-        }
     </style>
 </head>
 
@@ -135,6 +123,13 @@
                   <p>This Profile is Private</p>
                 </div>
             {% else %}
+                {% if not account.instagram_token and not account.youtube_token and not account.twitter_token  %}
+
+                    <div class="center">
+                      <p>このユーザーは〇〇を利⽤していません</p>
+                    </div>
+
+                {% endif %}
             <section class="profile_details">
 
                 {% if account.instagram_token %}
@@ -183,13 +178,14 @@
                     <p class="profile_details_description">{{ account.twitter_comment }}</p>
                 </div>
                     {% endif %}
-
+                {% if account.wikipidia_desc %}
                 <div class="profile_details_block" id="profile">
                     <a href="" class="profile_icon"><img src="{% static 'new_static/images/Wikipedia.png' %}" alt=""></a>
                     <h2>{{ account.display_name }}</h2>
                     <p class="profile_read">出典: フリー百科事典『ウィキペディア（Wikipedia）』</p>
                     <p class="profile_txt">{{ account.wikipidia_desc }}</p>
                 </div>
+                    {% endif %}
 
             </section>
             {% endif %}
