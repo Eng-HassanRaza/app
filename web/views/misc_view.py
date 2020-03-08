@@ -40,7 +40,7 @@ def about(request):
     return render(request, 'new_about.html',context={'active_users':all_users})
 def about_verification(request):
     """ABOUT VERIFICATION"""
-    context = {'name':request.POST['ab_name'],'email':request.POST['ab_email'],'desc':request.POST['ab_desc']}
+    context = {'name':request.POST['ab_name'],'email':request.POST['ab_email'],'desc':request.POST['ab_desc'],'request_method':"inquiry"}
     return render(request, 'new_verification.html',context=context)
 
 def thanks_contact(request):

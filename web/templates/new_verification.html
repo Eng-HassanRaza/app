@@ -214,13 +214,21 @@
                             <textarea name="ab_desc" type="hidden" id="message" rows="4" {{ desc }}required></textarea>
                         </div>
                     </div>
-
-				  <span style="color:#234d6a;font-weight:bold;">お名前</span>
-                  <p>{{ name }} </p>
-                  <span style="color:#234d6a;font-weight:bold;">メールアドレス</span>
-                  <p> {{ email }} </p>
-                  <span style="color:#234d6a;font-weight:bold;">お問い合わせ</span>
-                  <p> {{ desc }} </p>
+                   {% if request_method %}
+                      <span style="color:#234d6a;font-weight:bold;">Inquiry Type</span>
+                      <p>{{ name }} </p>
+                      <span style="color:#234d6a;font-weight:bold;">メールアドレス</span>
+                      <p> {{ email }} </p>
+                      <span style="color:#234d6a;font-weight:bold;">お問い合わせ</span>
+                      <p> {{ desc }} </p>
+                    {% else %}
+                       <span style="color:#234d6a;font-weight:bold;">お名前</span>
+                      <p>{{ name }} </p>
+                      <span style="color:#234d6a;font-weight:bold;">メールアドレス</span>
+                      <p> {{ email }} </p>
+                      <span style="color:#234d6a;font-weight:bold;">お問い合わせ</span>
+                      <p> {{ desc }} </p>
+                    {% endif %}
                   <p>&nbsp;</p>
                   <div class="btn-reward">
                     <input type="submit" value="送信する" class="btn-input">

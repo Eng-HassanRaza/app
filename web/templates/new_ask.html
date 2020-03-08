@@ -91,9 +91,10 @@
                   <p>&nbsp;</p>
                   <span style="color:#234d6a;font-weight:bold;">お問い合わせの種類</span>
 
-                  <form action="php/out.php" method="post">
+                  <form action="{% url 'web:about_verification' %}" method="post">
+                      {% csrf_token %}
                     <p>
-                      <select name="お問い合わせの種類">
+                      <select name="ab_name">
                         <option value="お仕事">お仕事について</option>
                         <option value="ご意見・ご要望・不具合">ご意見・ご要望・不具合</option>
                         <option value="退会">退会</option>
@@ -102,12 +103,12 @@
                     <p>&nbsp;</p>
                     <span style="color:#234d6a;font-weight:bold;">ご連絡のメールアドレス</span>
                     <p>
-                      <input type="email" name="メールアドレス">
+                      <input type="email" name="ab_email">
                     </p>
                     <p>&nbsp;</p>
                     <span style="color:#234d6a;font-weight:bold;">お問い合わせ内容</span>
                     <p>
-                      <textarea  required id="kanso" name="お問い合わせ" cols="40" rows="4" maxlength="20" placeholder="ご意見・ご感想をご記入ください"></textarea>
+                      <textarea  required id="kanso" name="ab_desc" cols="40" rows="4" maxlength="20" placeholder="ご意見・ご感想をご記入ください"></textarea>
                     </p>
                     <div class="contact">
                       <input type="submit" value="送信内容を確認する" class="btn-edit3">
