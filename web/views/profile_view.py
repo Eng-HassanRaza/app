@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_GET
 
 from web.forms import AccountForm
-from web.models import Account, InstagramInfo, YoutubeInfo
+from web.models import Account, InstagramInfo, YoutubeInfo,SystemConfig
 import requests
 logger = logging.getLogger("main")
 
@@ -54,7 +54,7 @@ def get_paginator(query_set):
 def profile_long(request, account_id):
     """プロフィールページ"""
     account = get_object_or_404(Account, pk=account_id)
-
+    adsetting = SystemConfig.objects.filter().first().value
     if not account.user.is_active:
         raise Http404
 
@@ -84,6 +84,7 @@ def profile_long(request, account_id):
         "instagram_list": instagram_list,
         "youtube_list": youtube_list,
         "twitter_id": twitter_id,
+        "googleadd" : adsetting
     }
     if account.ssp_landscape is not None:
         params["SSP_TAG_LAND"] = account.ssp_landscape

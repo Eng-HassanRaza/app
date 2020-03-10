@@ -122,7 +122,11 @@
                     {% else %}
                         <p id="pt"><font size="1pt">今月のLEAN SCORE</font>　<span>100</span></p>
                         <p class="profile_cover_details">{{ account.profile }}</p>
-                        <div class="profile_cover_adsense" align="center"><img src="https://placehold.jp/600x200.png" alt=""></div>
+                        <div class="profile_cover_adsense" align="center">
+
+                        {{ googleadd | safe }}
+
+                        </div>
                 {% endif %}
                 </div>
             </section>
@@ -134,7 +138,7 @@
                 {% if not account.instagram_token and not account.youtube_token and not account.twitter_token  %}
 
                     <div class="center">
-                      <p>このユーザーは〇〇を利⽤していません</p>
+{#                      <p>このユーザーは〇〇を利⽤していません</p>#}
                     </div>
                 {% else %}
                     <section class="profile_details">
@@ -217,18 +221,24 @@
         </div>
     </div>
     <!-- Modal -->
-    <div id="clipboard_modal" class="modal">
-        <div id="popup1" class="overlay">
+    <div id="ex1" class="modal">
+  <div id="popup1" class="overlay">
             <div class="popup" style="text-align: center">
-                <h2 id="modal_header"></h2>
+                <h2 id="modal_header">http://lea-n.com/</h2>
                 </br>
                 <div class="body_content">
-                    <p id="modal_content"></p>
+                    <p id="modal_content"> {% if not request.user.is_authenticated %}
+                       {{ request|current_url|add:'?openExternalBrowser=1' }}
+                       {% else %}
+                       {{ request|current_url|add:'?id='|add:request.user.account.page_id|add:'&openExternalBrowser=1' }}
+                       {% endif %}</p>
                 </div>
-                <h3 id="modal_footer"></h3>
+                </br>
+                <a href="#" rel="modal:close"><h3 id="modal_footer">OK</h3></a>
+
             </div>
         </div>
-    </div>
+</div>
    <!-- ===スクリプト系= -->
 
     <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>

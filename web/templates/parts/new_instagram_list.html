@@ -35,8 +35,12 @@
     <link rel="stylesheet" href="{% static 'new_static/css/style.css' %}">
 
      <script src="{% static 'new_static/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'new_static/js/clipboard.min.js' %}"></script>
+    <script src="{% static 'new_static/js/clipboard-polyfill.js' %}"></script>
     <script src="{% static 'new_static/assets/js/jquery.waypoints.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/infinite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <style>
 
 .center {
@@ -127,7 +131,24 @@
 
 
         </main>
+<div id="ex1" class="modal">
+  <div id="popup1" class="overlay">
+            <div class="popup" style="text-align: center">
+                <h2 id="modal_header">http://lea-n.com/</h2>
+                </br>
+                <div class="body_content">
+                    <p id="modal_content"> {% if not request.user.is_authenticated %}
+                       {{ request|current_url|add:'?openExternalBrowser=1' }}
+                       {% else %}
+                       {{ request|current_url|add:'?id='|add:request.user.account.page_id|add:'&openExternalBrowser=1' }}
+                       {% endif %}</p>
+                </div>
+                </br>
+                <a href="#" rel="modal:close"><h3 id="modal_footer">OK</h3></a>
 
+            </div>
+        </div>
+</div>
         <!-- ==ページナビゲーション== -->
     {% if user.is_authenticated %}
         {% include 'login_footer.html' %}
@@ -136,11 +157,16 @@
     {% endif %}
 
     </div>
-
+<script>
+    $('.copy').click(function () {
+        $('.share').removeClass('open')
+    })
+</script>
     <!-- ===スクリプト系= -->
     <script src="{% static 'new_static/js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
     <script src="{% static 'new_static/js/slick.min.js' %}"></script>
+    <script src="{% static 'new_static/js/common.js' %}{{ RES_VER }}"></script>
     <script src="{% static 'new_static/js/lightbox-video.js' %}"></script>
     <script src="{% static 'new_static/js/index.js' %}"></script>
 

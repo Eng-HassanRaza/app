@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="copy"
+                    <a class="copy" href="#ex1" rel="modal:open"
                        {% if not request.user.is_authenticated %}
                        data-clipboard-text="{{ request|current_url|add:'?openExternalBrowser=1' }}"
                        {% else %}
