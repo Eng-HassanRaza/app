@@ -120,11 +120,12 @@
                         {% endif %}
 
                     </ul>
+                    <p id="pt"><font size="1pt">今月のLEAN SCORE</font>　<span>100</span></p>
+                        <p class="profile_cover_details">{{ account.profile }}</p>
                     {% if account.is_private and not user.is_authenticated %}
                     {% elif not account.instagram_token and not account.youtube_token and not account.twitter_token %}
                     {% else %}
-                        <p id="pt"><font size="1pt">今月のLEAN SCORE</font>　<span>100</span></p>
-                        <p class="profile_cover_details">{{ account.profile }}</p>
+
                         <div class="profile_cover_adsense" align="center">
 
                         {{ googleadd | safe }}
