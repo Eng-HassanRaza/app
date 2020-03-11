@@ -125,7 +125,8 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'ja-JP'
+# LANGUAGE_CODE = 'ja-JP'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Tokyo'
 
@@ -293,7 +294,8 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 # SECURE_SSL_REDIRECT = True
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
-
+FILE_UPLOAD_MAX_MEMORY_SIZE = 200000000
+FILE_UPLOAD_PERMISSIONS=0o640
 #  SSH
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
