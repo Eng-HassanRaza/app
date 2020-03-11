@@ -1,6 +1,7 @@
 from .base import *
 
 DEBUG = False
+FILE_UPLOAD_PERMISSIONS=0o640
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
