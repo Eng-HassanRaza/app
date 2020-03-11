@@ -103,9 +103,11 @@
               <h1>{{ account.display_name }}</h1>
 {#              <p>1.3K</p>#}
             </li>
+              {% if account.youtube_token %}
             <li>
               <a href="https://www.youtube.com/channel/{{ youtube_channel }}" target="_blank">YouTubeを開く</a>
             </li>
+              {% endif %}
           </ul>
         </div>
       </section>

@@ -104,9 +104,11 @@
                             <h1>{{ account.display_name }}</h1>
 {#                            <p>1.3K</p>#}
                         </li>
-                        <li>
-                            <a href="https://www.instagram.com/{{ instgram_user_id }}/" target="_blank">Instagramを開く</a>
-                        </li>
+                        {% if account.instagram_token %}
+                            <li>
+                                <a href="https://www.instagram.com/{{ instgram_user_id }}/" target="_blank">Instagramを開く</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </section>
