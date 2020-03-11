@@ -223,19 +223,29 @@
         </div>
     </div>
     <!-- Modal -->
-    <div id="clipboard_modal" class="modal">
-        <div id="popup1" class="overlay">
+    <div id="ex1" class="modal">
+  <div id="popup1" class="overlay">
             <div class="popup" style="text-align: center">
-                <h2 id="modal_header"></h2>
+                <h2 id="modal_header">http://lea-n.com/</h2>
                 </br>
                 <div class="body_content">
-                    <p id="modal_content"></p>
+                    <p id="modal_content"> {% if not request.user.is_authenticated %}
+                       {{ request|current_url|add:'?openExternalBrowser=1' }}
+                       {% else %}
+                       {{ request|current_url|add:'?id='|add:request.user.account.page_id|add:'&openExternalBrowser=1' }}
+                       {% endif %}</p>
                 </div>
                 </br>
-                <h3 id="modal_footer" class="modal:close"></h3>
+                <a href="#" rel="modal:close"><h3 id="modal_footer">OK</h3></a>
+
             </div>
         </div>
-    </div>
+</div>
+    <script>
+    $('.copy').click(function () {
+        $('.share').removeClass('open')
+    })
+</script>
    <!-- ===スクリプト系= -->
 
     <script src="{% static 'new_static/js/lightbox.min.js' %}"></script>
