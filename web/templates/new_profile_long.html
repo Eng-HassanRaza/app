@@ -93,11 +93,9 @@
         {% endif %}
             <!-- cover -->
             <section class="profile_cover">
-                <div class="profile_cover_img" {% if not account.profile_image and not account.profile_image1 and not account.profile_image2 and not account.profile_image3 %} style="height: 8vw !important;"{% endif %}>
-                    {% if not account.profile_image and not account.profile_image1 and not account.profile_image2 and not account.profile_image3 %}
-                    {% else %}
+                <div class="profile_cover_img" >
                     <div class="profile_cover_img_slide"></div>
-                    {% endif %}
+
                     <h1>{{ account.display_name|default:'' }}</h1>
                 </div>
                 <div class="profile_cover_txt">
