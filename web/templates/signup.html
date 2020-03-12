@@ -12,38 +12,27 @@
     <title>新規登録│LEAN!─SNSを使っている方、インフルエンサー・タレント必見。あなたのオフィシャルプロフィールが作れるシステムです</title>
     <meta name="description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="LEAN!新規登録新規登録"/>
-    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
-    <meta property="og:image" content="{{ OGP_URL }}">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LEAN!新規登録" />
+    <meta property="og:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+    <meta property="og:image" content="https://leanjapan.jp/i/images/ogp.png">
     <meta property="og:image:alt" content="LEAN!ogp">
-    <meta property="og:url" content="{{ OGP_URL }}"/>
-    <meta property="og:site_name" content="LEAN!"/>
+    <meta property="og:url" content="https://leanjapan.jp/i/signup.html" />
+    <meta property="og:site_name" content="LEAN!" />
     <!-- facebook -->
     <meta property="article:author" content="https://www.facebook.com/leanjapan/">
-    <meta property="fb:app_id" content="680771545664378"/>
-    <meta property="fb:admins" content="680771545664378"/>
+    <meta property="fb:app_id" content="680771545664378" />
+    <meta property="fb:admins" content="680771545664378" />
     <!-- twitter card -->
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content="@japan_lean"/>
-    <meta name="twitter:url" content="{{ OGP_URL }}"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@japan_lean" />
+    <meta name="twitter:url" content="https://leanjapan.jp/i/signup.html" />
     <meta name="twitter:title" content="LEAN!新規登録"/>
-    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。"/>
-    <meta name="twitter:image:src" content="{{ OGP_URL }}"/>
-    <meta name="twitter:site" content="LEAN!"/>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="{% static '/css/site_structure.css' %}">
-    <link rel="stylesheet" href="{% static '/css/site_content.css' %}">
-    {% include "parts/ga.html" with GA_TAG=GA_TAG %}
-    <style>
-    .errorlist {
-        color: red;
-        margin-top: 0.2rem;
-        text-align: center;
-    }
-
-    </style>
+    <meta name="twitter:description" content="LEAN!はSNSを使っている方のオフィシャルプロフィールを１分登録にて作成できる無料サービスです。SNSを使うすべての人に。" />
+    <meta name="twitter:image:src" content="https://leanjapan.jp/i/images/ogp.png" />
+    <meta name="twitter:site" content="LEAN!" />
+    <link rel="stylesheet" href="{% static 'new_static/css/site_structure.css' %}">
+    <link rel="stylesheet" href="{% static 'new_static/css/site_content.css' %}">
 </head>
 
 <body>
@@ -108,11 +97,8 @@
     　　
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="{% static '/js/clipboard-polyfill.js' %}"></script>
-<script src="{% static '/js/clipboard.min.js' %}"></script>
-<script src="{% static '/js/index.js' %}"></script>
-<script src="{% static '/js/common.js' %}{{ RES_VER }}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{% static 'new_static/js/index.js' %}" async defer></script>
 
 </body>
 
