@@ -123,12 +123,12 @@
                     </div>
             {% else %}
                 <div class="box_video">
-      <ul class="insta_contents youtube infinite-container">
+      <ul class="insta_contents youtube infinite-container" style="width:100%">
          {% block socialcontents %}
                  {% if youtube_list %}
                         {% include "parts/youtube_list.html" with youtube_list=youtube_list %}
                 {% endif %}
-                    {{ SSP_TAG_LAND|safe }}
+{#                    {{ SSP_TAG_LAND|safe }}#}
             {% endblock socialcontents %}
     </ul>
 {% if youtube_list.has_next %}
