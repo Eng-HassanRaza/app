@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
-
+import stat
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "leanjapan.xsrv.jp", "leanjapan.jp", 
                  "www.lea-n.com","dev.lea-n.com"]
 
 # Application definition
-
+FILE_UPLOAD_PERMISSIONS = stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
