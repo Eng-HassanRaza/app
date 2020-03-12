@@ -1,8 +1,7 @@
 from .base import *
 
 DEBUG = False
-FILE_UPLOAD_MAX_MEMORY_SIZE = 200000000
-FILE_UPLOAD_PERMISSIONS=0o640
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -39,7 +38,7 @@ DATABASES = {
  }
  }
 }
-
+FILE_UPLOAD_PERMISSIONS = 0o644
 ####################################### New Database 03/06/2020 #########################################
 # DATABASES = {
 #  'default': {
