@@ -108,10 +108,7 @@
           </ul>
         </div>
       </section>
-    </br>
-    </br>
-    </br>
-    </br>
+
     {% if user.is_authenticated and not account.twitter_token %}
 
         <div class="center">
@@ -124,6 +121,10 @@
               <p>このユーザーは〇〇を利⽤していません</p>
             </div>
     {% else %}
+        </br>
+        </br>
+        </br>
+        </br>
         {% block socialcontents %}
     {% if twitter_id %}
         {% include "parts/new_twitter_page.html" with twitter_id=twitter_id %}
