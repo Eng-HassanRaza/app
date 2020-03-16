@@ -102,25 +102,25 @@
                     <ul class="profile_cover_select">
                         {% if account.profile_image or account.profile_image1 or account.profile_image2 or account.profile_image3  %}
                             {% if account.profile_image %}
-                               <li><img src="/media/{{ account.profile_image }}" alt="" {%if account.is_private and not user.is_authenticated %} style="-webkit-filter: blur(5px);filter: blur(5px);"{% endif %}></li>
+                               <li><img src="/media/{{ account.profile_image }}" alt="" {%if account.is_private and account.id != user.account.id  %} style="-webkit-filter: blur(5px);filter: blur(5px);"{% endif %}></li>
                             {% endif %}
                             {% if account.profile_image1 %}
-                                <li><img src="/media/{{ account.profile_image1 }}" alt="" {%if account.is_private and not user.is_authenticated %} style="filter: blur(10px)"{% endif %}></li>
+                                <li><img src="/media/{{ account.profile_image1 }}" alt="" {%if account.is_private and account.id != user.account.id  %} style="filter: blur(10px)"{% endif %}></li>
                             {% endif %}
                             {% if account.profile_image2 %}
-                                <li><img src="/media/{{ account.profile_image2 }}" alt="" {%if account.is_private and not user.is_authenticated %} style="filter: blur(10px)"{% endif %}></li>
+                                <li><img src="/media/{{ account.profile_image2 }}" alt="" {%if account.is_private and account.id != user.account.id  %} style="filter: blur(10px)"{% endif %}></li>
                             {% endif %}
                             {% if account.profile_image3 %}
-                                <li><img src="/media/{{ account.profile_image3 }}" alt="" {%if account.is_private and not user.is_authenticated %} style="filter: blur(10px)"{% endif %}></li>
+                                <li><img src="/media/{{ account.profile_image3 }}" alt="" {%if account.is_private and account.id != user.account.id  %} style="filter: blur(10px)"{% endif %}></li>
                             {% endif %}
                         {% else %}
-                            <li><img src="{% static '/images/user.png' %}" alt="" {%if account.is_private and not user.is_authenticated %} style="filter: blur(10px)"{% endif %}></li>
+                            <li><img src="{% static '/images/user.png' %}" alt="" {%if account.is_private and account.id != user.account.id  %} style="filter: blur(10px)"{% endif %}></li>
                         {% endif %}
 
                     </ul>
                     <p id="pt"><font size="1pt">今月のLEAN SCORE</font>　<span>100</span></p>
                         <p class="profile_cover_details">{{ account.profile }}</p>
-                    {% if account.is_private and not user.is_authenticated %}
+                    {% if account.is_private and account.id != user.account.id  %}
                     {% elif not account.instagram_token and not account.youtube_token and not account.twitter_token %}
                     {% else %}
 
@@ -132,7 +132,7 @@
                 {% endif %}
                 </div>
             </section>
-            {% if account.is_private and not user.is_authenticated %}
+            {% if account.is_private and account.id != user.account.id  %}
                 <div class="center">
                   <p>This Profile is Private</p>
                 </div>
