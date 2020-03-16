@@ -354,6 +354,43 @@ input::-moz-focus-outer {
                     {{ form.pr.errors }}
                 </div>
 
+                <p class="editname">Arbitrary URL</p>
+                <p class="textdes">If you have a site other than the above
+                    SNS that you would like to introduce on
+                    your profile page, please enter the URL.
+                    You can register up to three such as
+                    Wikipedia, official site, TikTok, etc.
+                </p>
+
+
+                <p class="editname">任意リンク 【任意】</p>
+                <p class="textdes">上記のSNS以外に、あなたのプロフィールページで紹介したいサイトがある場合は、下記にURL
+                を入力してください。Wikipedia、オフィシャルサイト、TikTokなど、3つまで登録することができます。</p>
+                <p>名前：<br /><input type="text" name="others1_name" placeholder="例）Wikipedia" value="{{ form.others1_name.value|default:'' }}"></p>
+                <p>URL：<br /><input type="text" name="others1" placeholder="例）https://google.co.jp/" value="{{ form.others1.value|default:'' }}"></p>
+                <p>説明：<br /><input type="text" name="others1_comment" placeholder="リンクの説明" size="36"
+                maxlength="160" value="{{ form.others1_comment.value|default:'' }}">
+                <p>&nbsp;</p>
+                <p>名前：<br /><input type="text" name="others2_name" placeholder="例）TikTok" value="{{ form.others2_name.value|default:'' }}"></p>
+                <p>URL：<br /><input type="text" name="others2" placeholder="例）https://google.co.jp/" value="{{ form.others2.value|default:'' }}"></p>
+                <p>説明：<br /><input type="text" name="others2_comment" placeholder="リンクの説明" size="36"
+                maxlength="160" value="{{ form.others2_comment.value|default:'' }}">
+                <p>&nbsp;</p>
+                <p>名前：<br /><input type="text" name="others3_name" placeholder="例）オフィシャルサイト" value="{{ form.others3_name.value|default:'' }}"></p>
+                <p>URL：<br /><input type="text" name="others3" placeholder="例）https://google.co.jp/" value="{{ form.others3.value|default:'' }}"></p>
+                <p>説明：<br /><input type="text" name="others3_comment" placeholder="リンクの説明" size="36"
+                maxlength="160" value="{{ form.others3_comment.value|default:'' }}">
+                <p>&nbsp;</p>
+                <p>名前：<br /><input type="text" name="others4_name" placeholder="例）オフィシャルサイト" value="{{ form.others4_name.value|default:'' }}"></p>
+                <p>URL：<br /><input type="text" name="others4" placeholder="例）https://google.co.jp/" value="{{ form.others4.value|default:'' }}"></p>
+                <p>説明：<br /><input type="text" name="others4_comment" placeholder="リンクの説明" size="36"
+                maxlength="160" value="{{ form.others4_comment.value|default:'' }}">
+                <p>&nbsp;</p>
+                <p>名前：<br /><input type="text" name="others5_name" placeholder="例）オフィシャルサイト" value="{{ form.others5_name.value|default:'' }}"></p>
+                <p>URL：<br /><input type="text" name="others5" placeholder="例）https://google.co.jp/" value="{{ form.others5.value|default:'' }}"></p>
+                <p>説明：<br /><input type="text" name="others5_comment" placeholder="リンクの説明" size="36"
+                maxlength="160" value="{{ form.others5_comment.value|default:'' }}">
+                <p>&nbsp;</p>
 
                 <!--
                 <p class="editname">SSP広告タグ　一般</p>

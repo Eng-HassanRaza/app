@@ -165,6 +165,27 @@ class Account(models.Model):
     wikipidia_desc = models.CharField("活動エリア", max_length=400, blank=True)
     birth_place = models.CharField("出身地", max_length=400, blank=True)
     height = models.CharField("身長", max_length=100, blank=True)
+
+    others1_name = models.CharField("others1_name", max_length=100, blank=True)
+    others1 = models.CharField("others1", max_length=100, blank=True)
+    others1_comment = models.CharField("others1_comment", max_length=400, blank=True)
+
+    others2_name = models.CharField("others2_name", max_length=100, blank=True)
+    others2 = models.CharField("others2", max_length=100, blank=True)
+    others2_comment = models.CharField("others2_comment", max_length=400, blank=True)
+
+    others3_name = models.CharField("others3_name", max_length=100, blank=True)
+    others3 = models.CharField("others3", max_length=100, blank=True)
+    others3_comment = models.CharField("others3_comment", max_length=400, blank=True)
+
+    others4_name = models.CharField("others4_name", max_length=100, blank=True)
+    others4 = models.CharField("others4", max_length=100, blank=True)
+    others4_comment = models.CharField("others4_comment", max_length=400, blank=True)
+
+    others5_name = models.CharField("others5_name", max_length=100, blank=True)
+    others5 = models.CharField("others5", max_length=100, blank=True)
+    others5_comment = models.CharField("others5_comment", max_length=400, blank=True)
+
     activity_genres = models.ManyToManyField(ActivityGenre, verbose_name="活動ジャンル", related_name="accounts", blank=True)
     birth_day = models.DateField("誕生日", null=True, blank=True)
 
