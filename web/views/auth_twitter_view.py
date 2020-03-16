@@ -2,7 +2,7 @@ import logging
 
 from django.contrib import messages
 from django.shortcuts import redirect
-
+from web.forms import AccountForm
 from web.usecase.TwitterService import TwitterService
 
 logger = logging.getLogger("main")
@@ -14,6 +14,14 @@ def login(request):
     logger.info("twitter login")
 
     if request.method == 'POST':
+        try:
+            account = request.user.account
+        except:
+            account = None
+
+        form = AccountForm(data=request.POST, files=request.FILES, instance=account)
+        if form.is_valid():
+            form.save()
         logger.info("twitter login: save form data")
         request.session['form_data'] = request.POST
 

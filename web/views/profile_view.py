@@ -122,10 +122,16 @@ def instagram_list(request, account_id):
         "account": account,
         "instagram_list": numbers,
     }
-    if account.ssp_landscape is not None:
+    if account.ssp_landscape is not None and not account.ssp_landscape == '':
         params["SSP_TAG_LAND"] = account.ssp_landscape
-    if account.ssp_post is not None:
+    elif account.ssp_landscape == '':
+        account.ssp_landscape = None
+
+    if account.ssp_post is not None and not account.ssp_post == '':
         params["SSP_TAG_POST"] = account.ssp_post
+    elif account.ssp_post == '':
+        account.ssp_post == None
+
     try:
         r =requests.get(params['instagram_list'][0].url + '?__a=1')
         instgram_user_id = r.json()['graphql']['shortcode_media']['owner']['username']
@@ -159,10 +165,15 @@ def twitter_list(request, account_id):
         "account": account,
         "twitter_id": twitter_id,
     }
-    if account.ssp_landscape is not None:
+    if account.ssp_landscape is not None and not account.ssp_landscape == '':
         params["SSP_TAG_LAND"] = account.ssp_landscape
-    if account.ssp_post is not None:
+    elif account.ssp_landscape == '':
+        account.ssp_landscape = None
+
+    if account.ssp_post is not None and not account.ssp_post == '':
         params["SSP_TAG_POST"] = account.ssp_post
+    elif account.ssp_post == '':
+        account.ssp_post == None
     return render(request, 'parts/twitter_page.html', params)
 
 @require_GET
@@ -194,10 +205,15 @@ def youtube_list(request, account_id):
         "account": account,
         "youtube_list": numbers,
     }
-    if account.ssp_landscape is not None:
+    if account.ssp_landscape is not None and not account.ssp_landscape == '':
         params["SSP_TAG_LAND"] = account.ssp_landscape
-    if account.ssp_post is not None:
+    elif account.ssp_landscape == '':
+        account.ssp_landscape = None
+
+    if account.ssp_post is not None and not account.ssp_post == '':
         params["SSP_TAG_POST"] = account.ssp_post
+    elif account.ssp_post == '':
+        account.ssp_post == None
     try:
         youtube_channel_id = params['youtube_list'][0].chanel_id
     except:

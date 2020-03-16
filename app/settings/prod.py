@@ -72,6 +72,6 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 #         }
 #     }
 # }
-
+FILE_UPLOAD_PERMISSIONS = 0o644
 # static files
 #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
