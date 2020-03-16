@@ -101,7 +101,7 @@ def instagram_list(request, account_id):
     if not account.user.is_active:
         raise Http404
 
-    if account.is_private and not request.user.is_authenticated:
+    if account.is_private and account_id != request.user.account.id:
         return render(request, 'new_profile_long.html', {
             "account": account
         })
@@ -149,7 +149,7 @@ def twitter_list(request, account_id):
     if not account.user.is_active:
         raise Http404
 
-    if account.is_private and not request.user.is_authenticated:
+    if account.is_private and account_id != request.user.account.id:
         return render(request, 'new_profile_long.html', {
             "account": account
         })
@@ -184,7 +184,7 @@ def youtube_list(request, account_id):
     if not account.user.is_active:
         raise Http404
 
-    if account.is_private and not request.user.is_authenticated:
+    if account.is_private and account_id != request.user.account.id:
         return render(request, 'new_profile_long.html', {
             "account": account
         })
